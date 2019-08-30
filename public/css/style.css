@@ -9604,7 +9604,7 @@ Cards
 
 #flight-card .card-content-bg
 {
-    background: url('../../../images/gallery/3.png') no-repeat center center;
+    background: url('../image/logo.png') no-repeat center center;
     -webkit-background-size: cover;
             background-size: cover;
 }
