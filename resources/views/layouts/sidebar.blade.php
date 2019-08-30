@@ -1,6 +1,6 @@
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
     <div class="brand-sidebar">
-      <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="#"><img src="{{ asset('image/logo.png') }}" alt="man 1 logo"/><span class="logo-text hide-on-med-and-down">MAN 1</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+      <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="{{ route('dashboard') }}"><img src="{{ asset('image/logo.png') }}" alt="man 1 logo"/><span class="logo-text hide-on-med-and-down">MAN 1</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         {{-- menus --}}
