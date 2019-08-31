@@ -17,4 +17,37 @@ Route::group(['prefix' => 'kepegawaian'], function () {
             
     });
 
+    Route::group(['prefix' => 'riwayat-pendidikan'], function () {
+        
+        Route::get('', 'PegawaiController@index')
+            ->name('riwayat_pendidikan.index');
+
+        Route::get('/create', 'PegawaiController@create')
+            ->name('riwayat_pendidikan.create');
+
+        Route::get('/store', 'PegawaiController@store')
+            ->name('riwayat_pendidikan.store');
+
+        Route::get('/ajax/data', 'PegawaiController@datatables')
+            ->name('riwayat_pendidikan.ajax.data');
+            
+    });
+
+    Route::group(['prefix' => 'mutasi'], function () {
+        
+        Route::get('', 'PegawaiController@index')
+            ->name('mutasi.index');
+
+        Route::get('/create', 'PegawaiController@create')
+            ->name('mutasi.create');
+
+        Route::get('/store', 'PegawaiController@store')
+            ->name('mutasi.store');
+
+        Route::get('/ajax/data', 'PegawaiController@datatables')
+            ->name('mutasi.ajax.data');
+            
+    });
+
+
 });

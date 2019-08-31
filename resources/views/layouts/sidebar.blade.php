@@ -4,7 +4,9 @@
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         {{-- menus --}}
+        @include('layouts.menus.dashboard')
         @include('layouts.menus.pegawai')
+        @include('layouts.menus.jabatan')
         @include('layouts.menus.report')
         {{-- end menus --}}
     </ul>
