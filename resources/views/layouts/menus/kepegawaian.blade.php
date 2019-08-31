@@ -1,4 +1,4 @@
-<li class="bold {{ request()->is('kepegawaian*') ? 'active' : '' }}"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">dvr</i><span class="menu-title" data-i18n="">Kepegawaian</span>
+<li class="bold {{ request()->is('kepegawaian*') ? 'active' : '' }}"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons"><img src="{{asset('icons/kepegawaian_kecil.png')}}"></i><span class="menu-title" data-i18n="">Kepegawaian</span>
     {{-- <span class="badge badge pill orange float-right mr-10">3</span> --}}
 </a>
     <div class="collapsible-body">

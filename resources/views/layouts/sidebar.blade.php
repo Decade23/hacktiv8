@@ -6,7 +6,7 @@
         {{-- menus --}}
         @include('layouts.menus.dashboard')
         @include('layouts.menus.pegawai')
-        @include('layouts.menus.jabatan')
+        @include('layouts.menus.kepegawaian')
         @include('layouts.menus.report')
         {{-- end menus --}}
     </ul>
