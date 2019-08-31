@@ -6,19 +6,19 @@ trait RedirectTo
 {
     public function redirectSuccessCreate($url, $message)
     {
-        session()->flash('success', __('global.creation_successful', ['name' => $message]));
+        session()->flash('success', $message.' Berhasil Ditambahkan');
         return redirect()->to($url);
     }
 
     public function redirectSuccessUpdate($url, $message)
     {
-        session()->flash('success', __('global.update_successful', ['name' => $message]));
+        session()->flash('success', $message.' Berhasil Diperbaharui');
         return redirect()->to($url);
     }
 
     public function redirectSuccessDelete($url, $message)
     {
-        session()->flash('success', __('global.delete_successful', ['name' => $message]));
+        session()->flash('success', $message.' Berhasil Dihapuskan');
         return redirect()->to($url);
     }
 

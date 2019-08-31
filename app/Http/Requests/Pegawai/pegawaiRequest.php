@@ -24,13 +24,19 @@ class pegawaiRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama'                          => 'required',
             'nip'                           => 'required',
-            'no_ktp'                        => 'required|email',
-            // 'member.phone'                  => 'required|numeric|min:8',
-            // 'member.address.subdistrict_id' => 'required',
-            // 'member.address.province'       => 'required',
-            // 'member.address.postal_code'    => 'required',
+            'noKtp'                        => 'required',
+            'nama'                          => 'required',
+            'email'                         => 'required|email',
+            'phone'                         => 'required',
+            'tempat_lahir'                  => 'required',
+            'tanggal_lahir'                 => 'required|date',
+            'jenis_kelamin'                 => 'required',
+            'statusKawin'                   => 'required',
+            'jabatan'                       => 'required',
+            'statusKepegawaian'             => 'required',
+            'alamat'                        => 'required',
+            
         ];
     }
 

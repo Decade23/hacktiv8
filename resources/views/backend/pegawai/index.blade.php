@@ -7,90 +7,33 @@
         <div class="container">
             <div class="card">
                 <div class="card-content">
-                  <div class="card-title">Form Pegawai</div>
-                <form action="{{ route('') }}">
-                          <div class="input-field col s6">
-                            <input id="nip" name="nip" type="text" class="validate">
-                            <label for="nip">NIP</label>
-                          </div>
-
-                          <div class="input-field col s6">
-                            <input id="noKtp" name="noKtp" type="text" class="validate">
-                            <label for="noKtp">Nomor KTP</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="nama" name="nama" type="text" class="validate">
-                            <label for="name">Nama</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="email" name="email" type="text" class="validate">
-                            <label for="email">Email</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="phone" name="phone" type="text" class="validate">
-                            <label for="phone">Phone</label>
-                          </div>
-                          
-                          <div class="input-field col s2">
-                              <input id="tempat_lahir" name="tempat_lahir" type="text" class="validate">
-                              <label for="tempat_lahir">Tempat Lahir</label>
-                           </div>
-                           <div class="input-field col s4">
-                              <input id="dob" name="dob" type="text" class="validate datepicker">
-                              <label for="dob">Tanggal Lahir</label>
-                           </div>
-
-                           <div class="input-field col s3">
-                            <select name="gender" id="gender">
-                              <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
-                              <option value="M">Pria</option>
-                              <option value="F">Wanita</option>
-                            </select>
-                            <label for="gender">Jenis Kelamin</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="statusKawin" id="statusKawin">
-                              <option value="" disabled selected>-- Pilih Status --</option>
-                              <option value="M">Jabatan 1</option>
-                              <option value="F">Jabatan 2</option>
-                            </select>
-                            <label for="jabatan">Status Kawin</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="jabatan" id="jabatan">
-                              <option value="" disabled selected>-- Pilih Jabatan --</option>
-                              <option value="M">Jabatan 1</option>
-                              <option value="F">Jabatan 2</option>
-                            </select>
-                            <label for="jabatan">Jabatan</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="statusKepegawaian" id="statusKepegawaian">
-                              <option value="" disabled selected>-- Pilih Status --</option>
-                              <option value="M">Jabatan 1</option>
-                              <option value="F">Jabatan 2</option>
-                            </select>
-                            <label for="statusKepegawaian">Status Pegawai</label>
-                          </div>
-
-                          <div class="input-field col s12">
-                            <textarea id="alamat" name="alamat" class="materialize-textarea"></textarea>
-                            <label for="alamat">Alamat</label>
-                          </div>
-
-                          <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
-                              <i class="material-icons right">send</i>
-                            </button>
-                          </div>
-
-                    </form>
+                  <div class="card-title">Data Pegawai</div>
+                  @include('response')
+                  <div class="row">
+            <div class="col s12">
+              <a class="waves-effect waves-light btn-small" href="{{ route('pegawai.create') }}">Create</a>
+              <table id="table-pegawai" class="display nowrap">
+                <thead>
+                  <tr>
+                    <th>NIP</th>
+                    <th>No KTP</th>
+                    <th>Email</th>
+                    <th>Nama</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Status Kawin</th>
+                    <th>Alamat</th>
+                    <th>No Phone</th>
+                    <th>Jabatan</th>
+                    <th>Status Kepegawaian</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                
+              </table>
+            </div>
+          </div>
                 </div>
             </div>
         </div>
@@ -100,16 +43,102 @@
   
 @endsection
 
+@push('css')
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables/jquery.dataTables.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables/responsive.dataTables.min.css') }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables/select.dataTables.min.css') }}"> --}}
+@endpush
+
 @push('js')
-  <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ asset('js/datatables/dataTables.responsive.min.js') }}"></script>
+  {{-- <script src="{{ asset('js/datatables/dataTables.select.min.js') }}"></script> --}}
+  <script src="{{ asset('js/datatables/jquery.dataTables.min.js') }}"></script>
   <script>
     $(document).ready(function(){
-      $('.datepicker').datepicker({
-        format : 'yyyy-mm-dd',
-        changeMonth: true,
-        changeYear : true,
-        yearRange  : "-100:+0"
-      });
+      let table = $('#table-pegawai').DataTable({
+        "scrollY": 200,
+        "scrollX": true,
+         processing: true,
+         serverSide: true,
+         ajax: {
+              url: '{!! route('pegawai.ajax.data') !!}',
+              dataType: 'json'
+          },
+          columns: [
+              {data: 'id', name: 'id', visible: false},
+              {data: 'nip', name: 'nip'},
+              {data: 'no_ktp', name: 'no_ktp'},
+              {data: 'email', name: 'email'},
+              {data: 'nama', name: 'nama'},
+              {data: 'tempat_lahir', name: 'tempat_lahir'},
+              {data: 'tanggal_lahir', name: 'tanggal_lahir'},
+              {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+              {data: 'status_kawin_id', name: 'status_kawin_id'},
+              {data: 'alamat', name: 'alamat'},
+              {data: 'no_telepon', name: 'no_telepon'},
+              {data: 'jabatan_id', name: 'jabatan_id'},
+              {data: 'status_kepegawaian', name: 'status_kepegawaian'},
+
+              {data: 'created_at', name: 'created_at'},
+              // {
+              //     data: 'action', name: 'action', orderable: false, searchable: false,
+              //     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+              //         $("a", nTd).tooltip({container: 'body'});
+              //     }
+              // }
+          ],
+      })
+
+      // let table = $('#table-pegawai').DataTable({
+      //       aaSorting: [[0, 'desc']],
+      //       iDisplayLength: 25,
+      //       "scrollY": 200,
+      //       "scrollX": true
+      //       //stateSave: true,
+      //       responsive: true,
+      //       fixedHeader: true,
+      //       processing: true,
+      //       serverSide: true,
+      //       dom: "<'dt-panelmenu clearfix'<'row'<'col-sm-2'B><'col-sm-4'l><'col-sm-6'f>>>" +
+      //           "<'row'<'col-sm-12'tr>>" +
+      //           "<'dt-panelfooter clearfix'<'row'<'col-sm-5'i><'col-sm-7'p>>>",
+      //       pagingType: "full_numbers",
+      //       ajax: {
+      //           url: '{!! route('pegawai.ajax.data') !!}',
+      //           dataType: 'json'
+      //       },
+      //       columns: [
+      //           {data: 'id', name: 'id', visible: false},
+      //           {
+      //               data: 'checkbox', name: 'checkbox', orderable: false, searchable: false,
+      //               checkboxes: true
+      //           },
+      //           {data: 'title', name: 'title'},
+      //           {data: 'status', name: 'status'},
+
+      //           {data: 'created_at', name: 'created_at'},
+      //           {
+      //               data: 'action', name: 'action', orderable: false, searchable: false,
+      //               fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+      //                   $("a", nTd).tooltip({container: 'body'});
+      //               }
+      //           }
+      //       ],
+      //       columnDefs: [
+      //           {
+      //               targets: 1,
+      //               className: 'text-center'
+      //           },
+      //       ],
+      //       buttons: [
+      //           {
+      //               extend: 'colvis',
+      //               text: '<i class="fa fa-columns"></i> @lang('auth.index_column')',
+      //               columns: '1, 2, 3, 4, 5'
+      //           }
+      //       ],
+      //       select: 'multi'
+      //   });
     });
   </script>
 @endpush

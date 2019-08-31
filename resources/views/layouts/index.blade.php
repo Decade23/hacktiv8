@@ -24,8 +24,8 @@
     <!-- BEGIN: Footer-->
 
     @include('layouts.footer')
-    @stack('js')
 
     @include('layouts.footerJs')
+    @stack('js')
   </body>
 </html>
