@@ -39,21 +39,36 @@
                             <input id="tanggalIjazah" name="tanggalIjazah" type="text" class="validate">
                             <label for="tanggalIjazah">Tanggal Ijazah</label>
                           </div>
-                          
-                          <div class="input-field col s2">
-                              <input id="ijazah" name="ijazah" type="text" class="validate">
-                              <label for="ijazah">File Ijazah</label>
-                           </div>
-                          <div class="input-field col s4">
-                              <input id="transkripNilai" name="transkripNilai" type="text" class="validate">
-                              <label for="transkripNilai">File Transkrip Ijazah</label>
-                           </div>
 
-                           <div class="input-field col s4">
-                              <input id="sertifikatPendidik" name="sertifikatPendidik" type="text" class="validate">
-                              <label for="sertifikatPendidik">File Sertifikat Pendidik</label>
-                           </div>
+                          <div class="col m6 s6 file-field input-field">
+                            <div class="btn float-right">
+                              <span>File Ijazah</span>
+                              <input type="file" id="fileIjazah" name="fileIjazah">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
 
+                          <div class="col m6 s6 file-field input-field">
+                            <div class="btn float-right">
+                              <span>File Transkip Ijazah</span>
+                              <input type="file" id="fileTranskipIjazah" name="fileTranskipIjazah">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
+
+                          <div class="col m6 s6 file-field input-field">
+                            <div class="btn float-right">
+                              <span>File Sertifikat Pendidik</span>
+                              <input type="file" id="fileSertifikatPendidik" name="fileSertifikatPendidik">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
 
                           <div class="input-field col s12">
                             <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit

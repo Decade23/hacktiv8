@@ -15,11 +15,12 @@ class RiwayatController extends Controller
 
     public function index()
     {
-    	return view('backend.pegawai.index');
+    	return view('backend.riwayat_pendidikan.index');
     }
 
     public function create()
     {
+        // return 'coba';
         return view('backend.riwayat_pendidikan.create');
     }
 
