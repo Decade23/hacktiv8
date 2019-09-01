@@ -10,80 +10,50 @@
                   <div class="card-title">Form Riwayat Hidup</div>
                   @include('response')
                 <form action="{{ route('pegawai.store') }}">
-                          <div class="input-field col s6">
-                            <input id="nip" name="nip" type="text" class="validate">
-                            <label for="nip">NIP</label>
-                          </div>
-
-                          <div class="input-field col s6">
-                            <input id="noKtp" name="noKtp" type="text" class="validate">
-                            <label for="noKtp">Nomor KTP</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="nama" name="nama" type="text" class="validate">
-                            <label for="nama">Nama</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="email" name="email" type="text" class="validate">
-                            <label for="email">Email</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="phone" name="phone" type="text" class="validate">
-                            <label for="phone">Phone</label>
-                          </div>
-                          
-                          <div class="input-field col s2">
-                              <input id="tempat_lahir" name="tempat_lahir" type="text" class="validate">
-                              <label for="tempat_lahir">Tempat Lahir</label>
-                           </div>
-                           <div class="input-field col s4">
-                              <input id="tanggal_lahir" name="tanggal_lahir" type="text" class="validate">
-                              <label for="tanggal_lahir">Tanggal Lahir</label>
-                           </div>
-
-                           <div class="input-field col s3">
-                            <select name="jenis_kelamin" id="jenis_kelamin">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="M">Pria</option>
-                              <option value="F">Wanita</option>
-                            </select>
-                            <label for="gender">Jenis Kelamin</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="statusKawin" id="statusKawin">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="1">Jabatan 1</option>
-                              <option value="2">Jabatan 2</option>
-                            </select>
-                            <label for="jabatan">Status Kawin</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="jabatan" id="jabatan">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="1">Jabatan 1</option>
-                              <option value="2">Jabatan 2</option>
-                            </select>
-                            <label for="jabatan">Jabatan</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="statusKepegawaian" id="statusKepegawaian">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="aktif">Aktif</option>
-                              <option value="tidak aktif">Tidak Aktif</option>
-                            </select>
-                            <label for="statusKepegawaian">Status Pegawai</label>
+                          <div class="input-field col s12">
+                            <input id="tingkatPendidikan" name="tingkatPendidikan" type="text" class="validate">
+                            <label for="tingkatPendidikan">Tingkat Pendidikan</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <textarea id="alamat" name="alamat" class="materialize-textarea"></textarea>
-                            <label for="alamat">Alamat</label>
+                            <input id="namaSekolah" name="namaSekolah" type="text" class="validate">
+                            <label for="namaSekolah">Nama Sekolah/Universitas</label>
                           </div>
+                          
+                          <div class="input-field col s12">
+                            <input id="alamatSekolah" name="alamatSekolah" type="text" class="validate">
+                            <label for="alamatSekolah">Alamat Sekolah/Universitas</label>
+                          </div>
+                          
+                          <div class="input-field col s12">
+                            <input id="jurusan" name="jurusan" type="text" class="validate">
+                            <label for="jurusan">Jurusan</label>
+                          </div>
+                          
+                          <div class="input-field col s6">
+                            <input id="noIjazah" name="noIjazah" type="text" class="validate">
+                            <label for="noIjazah">No.Ijazah</label>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <input id="tanggalIjazah" name="tanggalIjazah" type="text" class="validate">
+                            <label for="tanggalIjazah">Tanggal Ijazah</label>
+                          </div>
+                          
+                          <div class="input-field col s2">
+                              <input id="ijazah" name="ijazah" type="text" class="validate">
+                              <label for="ijazah">File Ijazah</label>
+                           </div>
+                          <div class="input-field col s4">
+                              <input id="transkripNilai" name="transkripNilai" type="text" class="validate">
+                              <label for="transkripNilai">File Transkrip Ijazah</label>
+                           </div>
+
+                           <div class="input-field col s4">
+                              <input id="sertifikatPendidik" name="sertifikatPendidik" type="text" class="validate">
+                              <label for="sertifikatPendidik">File Sertifikat Pendidik</label>
+                           </div>
+
 
                           <div class="input-field col s12">
                             <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit

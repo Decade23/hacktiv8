@@ -24,16 +24,16 @@ class pegawaiRequest extends FormRequest
     public function rules()
     {
         return [
-            'nip'                           => 'required',
-            'noKtp'                        => 'required',
+            'nip'                           => 'required|unique:user_profile,nip',
+            //'noKtp'                         => 'required',
             'nama'                          => 'required',
-            'email'                         => 'required|email',
-            'phone'                         => 'required',
+            //'email'                         => 'required|email',
+            'noTelepon'                     => 'required',
             'tempat_lahir'                  => 'required',
             'tanggal_lahir'                 => 'required|date',
             'jenis_kelamin'                 => 'required',
             'statusKawin'                   => 'required',
-            'jabatan'                       => 'required',
+            //'jabatan'                       => 'required',
             'statusKepegawaian'             => 'required',
             'alamat'                        => 'required',
             

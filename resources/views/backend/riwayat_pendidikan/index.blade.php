@@ -7,11 +7,11 @@
         <div class="container">
             <div class="card">
                 <div class="card-content">
-                  <div class="card-title">Data Pegawai</div>
+                  <div class="card-title">Data Riwayat Pendidikan</div>
                   @include('response')
                   <div class="row">
             <div class="col s12">
-              <a class="waves-effect waves-light btn-small" href="{{ route('pegawai.create') }}">Create</a>
+              <a class="waves-effect waves-light btn-small" href="{{ route('riwayat_pendidikan.create') }}">Create</a>
               <table id="table-pegawai" class="display nowrap">
                 <thead>
                   <tr>

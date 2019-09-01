@@ -21,14 +21,14 @@ class PegawaiService implements PegawaiServiceContract
             $store = new UserProfile();
             $store->nip                 = $request->nip;
             $store->nama                = $request->nama;
-            $store->no_ktp              = $request->noKtp;
-            $store->email               = $request->email;
-            $store->no_telepon          = $request->phone;
+            //$store->no_ktp              = $request->noKtp;
+            //$store->email               = $request->email;
+            $store->no_telepon          = $request->noTelepon;
             $store->tempat_lahir        = $request->tempat_lahir;
             $store->tanggal_lahir       = $request->tanggal_lahir;
             $store->jenis_kelamin       = $request->jenis_kelamin;
-            $store->jabatan_id          = $request->jabatan;
-            $store->status_kawin_id     = $request->statusKawin;
+            //$store->jabatan_id          = $request->jabatan;
+            $store->status_kawin        = $request->statusKawin;
             $store->alamat              = $request->alamat;
             $store->status_kepegawaian  = $request->statusKepegawaian;
 
@@ -52,8 +52,7 @@ class PegawaiService implements PegawaiServiceContract
     public function datatables($request)
     {
         $select = [
-            'user_profile.id', 'nip', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'jabatan_id', 'no_ktp', 'alamat', 'status_kawin_id','status_kepegawaian','email', 'no_telepon','user_profile.created_at'
-            
+            'user_profile.id', 'nip', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'status_kawin','status_kepegawaian', 'no_telepon', 'user_profile.created_at'
         ];
 
         $dataDb = UserProfile::select($select);

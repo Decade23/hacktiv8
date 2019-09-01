@@ -10,80 +10,78 @@
                   <div class="card-title">Form Pegawai</div>
                   @include('response')
                 <form action="{{ route('pegawai.store') }}">
-                          <div class="input-field col s6">
+                          <div class="input-field col s12">
                             <input id="nip" name="nip" type="text" class="validate">
-                            <label for="nip">NIP</label>
+                            <label for="nip">NIP/PEG.ID</label>
+                          </div>
+
+                          <div class="input-field col s12">
+                            <input id="nama" name="nama" type="text" class="validate">
+                            <label for="nama">Nama Pegawai</label>
                           </div>
 
                           <div class="input-field col s6">
-                            <input id="noKtp" name="noKtp" type="text" class="validate">
-                            <label for="noKtp">Nomor KTP</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="nama" name="nama" type="text" class="validate">
-                            <label for="nama">Nama</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="email" name="email" type="text" class="validate">
-                            <label for="email">Email</label>
-                          </div>
-                          
-                          <div class="input-field col s6">
-                            <input id="phone" name="phone" type="text" class="validate">
-                            <label for="phone">Phone</label>
-                          </div>
-                          
-                          <div class="input-field col s2">
                               <input id="tempat_lahir" name="tempat_lahir" type="text" class="validate">
                               <label for="tempat_lahir">Tempat Lahir</label>
                            </div>
-                           <div class="input-field col s4">
+                           <div class="input-field col s6">
                               <input id="tanggal_lahir" name="tanggal_lahir" type="text" class="validate">
                               <label for="tanggal_lahir">Tanggal Lahir</label>
                            </div>
-
-                           <div class="input-field col s3">
+                          
+                           <div class="input-field col s12">
                             <select name="jenis_kelamin" id="jenis_kelamin">
                               <option value="" disabled selected>-- Pilih --</option>
-                              <option value="M">Pria</option>
-                              <option value="F">Wanita</option>
+                              <option value="pria">Pria</option>
+                              <option value="wanita">Wanita</option>
                             </select>
                             <label for="gender">Jenis Kelamin</label>
                           </div>
 
-                          <div class="input-field col s3">
+                          <div class="input-field col s12">
                             <select name="statusKawin" id="statusKawin">
                               <option value="" disabled selected>-- Pilih --</option>
-                              <option value="1">Jabatan 1</option>
-                              <option value="2">Jabatan 2</option>
+                              <option value="lajang">Lajang</option>
+                              <option value="menikah">Menikah</option>
+                              <option value="bercerai">Bercerai</option>
                             </select>
                             <label for="jabatan">Status Kawin</label>
                           </div>
 
-                          <div class="input-field col s3">
+                          <div class="input-field col s12">
+                            <select name="statusKepegawaian" id="statusKepegawaian">
+                              <option value="" disabled selected>-- Pilih --</option>
+                              <option value="pns">PNS</option>
+                              <option value="ptt">PTT</option>
+                            </select>
+                            <label for="statusKepegawaian">Status Pegawai</label>
+                          </div>
+
+                          <div class="input-field col s12">
+                            <input id="alamat" name="alamat" type="text" class="validate">
+                            <label for="alamat">Alamat</label>
+                          </div>
+                          
+                          <div class="input-field col s12">
+                            <input id="noTelepon" name="noTelepon" type="text" class="validate">
+                            <label for="noTelepon">No Telepon</label>
+                          </div>
+                          
+                                          
+                          
+
+                           
+
+                          
+
+                          {{-- <div class="input-field col s3">
                             <select name="jabatan" id="jabatan">
                               <option value="" disabled selected>-- Pilih --</option>
                               <option value="1">Jabatan 1</option>
                               <option value="2">Jabatan 2</option>
                             </select>
                             <label for="jabatan">Jabatan</label>
-                          </div>
-
-                          <div class="input-field col s3">
-                            <select name="statusKepegawaian" id="statusKepegawaian">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="aktif">Aktif</option>
-                              <option value="tidak aktif">Tidak Aktif</option>
-                            </select>
-                            <label for="statusKepegawaian">Status Pegawai</label>
-                          </div>
-
-                          <div class="input-field col s12">
-                            <textarea id="alamat" name="alamat" class="materialize-textarea"></textarea>
-                            <label for="alamat">Alamat</label>
-                          </div>
+                          </div> --}}
 
                           <div class="input-field col s12">
                             <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
