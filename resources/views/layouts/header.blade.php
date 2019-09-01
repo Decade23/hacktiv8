@@ -9,6 +9,8 @@
     <link rel="apple-touch-icon" href="{{ asset('image/logo.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{  asset('image/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- BEGIN: VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/vendors.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flag-icon.min.css')  }}">

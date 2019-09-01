@@ -1,6 +1,7 @@
 <header class="page-topbar" id="header">
       <div class="navbar navbar-fixed"> 
-        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-indigo-purple no-shadow">
+        {{-- ganti warna navbar disini --}}
+        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock no-shadow navbar-dark pink"> 
           <div class="nav-wrapper">
             {{-- <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">Cari</i>
               <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize">

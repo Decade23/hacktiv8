@@ -1,16 +1,17 @@
 <?php
 
-Route::group(['prefix' => 'pegawai'], function () {
-    
+Route::group(['prefix' => 'mutasi'], function () {
+        
     Route::get('', 'PegawaiController@index')
-        ->name('pegawai.index');
+        ->name('mutasi.index');
 
     Route::get('/create', 'PegawaiController@create')
-        ->name('pegawai.create');
+        ->name('mutasi.create');
 
     Route::get('/store', 'PegawaiController@store')
-        ->name('pegawai.store');
+        ->name('mutasi.store');
 
     Route::get('/ajax/data', 'PegawaiController@datatables')
-        ->name('pegawai.ajax.data');        
+        ->name('mutasi.ajax.data');
+        
 });

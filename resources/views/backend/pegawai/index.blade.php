@@ -15,6 +15,7 @@
               <table id="table-pegawai" class="display nowrap">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>NIP</th>
                     <th>No KTP</th>
                     <th>Email</th>
@@ -27,6 +28,7 @@
                     <th>No Phone</th>
                     <th>Jabatan</th>
                     <th>Status Kepegawaian</th>
+                    <th>Created At</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -56,8 +58,8 @@
   <script>
     $(document).ready(function(){
       let table = $('#table-pegawai').DataTable({
-        "scrollY": 200,
-        "scrollX": true,
+         scrollY: 200,
+         scrollX: true,
          processing: true,
          serverSide: true,
          ajax: {

@@ -16,6 +16,12 @@
     <!-- END PAGE LEVEL JS-->
 
     <script>
+         $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+         
         $(".card-alert .close").click(function () {
             $(this)
                 .closest(".card-alert")

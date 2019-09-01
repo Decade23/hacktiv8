@@ -9,7 +9,7 @@ class Jabatan extends Model
     protected $table = 'jabatan';
     
     protected $fillable = [
-        'jabatan.id','jabatan.nama'
+        'id','nama'
     ];
 
 }

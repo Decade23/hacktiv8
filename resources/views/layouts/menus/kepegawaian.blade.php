@@ -3,9 +3,9 @@
 </a>
     <div class="collapsible-body">
     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-        <li><a class="collapsible-body {{ request()->is('kepegawaian/riwayat-pendidikan*') ? 'active' : '' }}" href="{{ route('riwayat_pendidikan.index') }}" data-i18n=""><i class="material-icons">{{ request()->is('kepegawaian/riwayat-pendidikan*') ? 'radio_button_checked' : 'radio_button_unchecked' }}</i><span>Jabatan</span></a>
+        <li><a class="collapsible-body {{ request()->is('kepegawaian/jabatan*') ? 'active' : '' }}" href="{{ route('jabatan.index') }}" data-i18n=""><i class="material-icons">{{ request()->is('kepegawaian/riwayat-pendidikan*') ? 'radio_button_checked' : 'radio_button_unchecked' }}</i><span>Jabatan</span></a>
         </li>
-        <li><a class="collapsible-body" href="{{ route('riwayat_pendidikan.index') }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Pangkat</span></a>
+        <li><a class="collapsible-body {{ request()->is('kepegawaian/pangkat*') ? 'active' : '' }}" href="{{ route('pangkat.index') }}" href="{{ route('riwayat_pendidikan.index') }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Pangkat</span></a>
         </li>
     </ul>
     </div>

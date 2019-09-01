@@ -40,7 +40,7 @@ class PegawaiController extends Controller
             return $pegawaiServiceContract->datatables($request);
         }
 
-        return abort(404, 'uups');
+        abort('404', 'uups');
 
     }
 }
