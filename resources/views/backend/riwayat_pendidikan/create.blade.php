@@ -7,7 +7,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-content">
-                  <div class="card-title">Form Riwayat Hidup</div>
+                  <div class="card-title">Form Riwayat Pendidikan</div>
                   @include('response')
                 <form action="{{ route('pegawai.store') }}">
                           <div class="input-field col s12">
