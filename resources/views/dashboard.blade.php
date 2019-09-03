@@ -16,7 +16,24 @@
                     </div>
                 </div> --}}
 
-                <div class="col s12 m4 l4">
+                {{-- <div class="col s12">
+                  <div class="card animate fadeLeft">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Welcome Home Eneng / Ncip / Thiara / Cochocip, masih semangat ?? :)</h4>
+                     </div>
+                  </div>
+               </div> --}}
+
+               <div class="col s12">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeRight">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Selamat Datang Di Sistem Arsip Kepegawaian MAN 1</h4>
+                     </div>
+                  </div>
+               </div>
+
+                {{-- <div class="col s12 m4 l4">
                   <!-- Current Balance -->
                   <div class="card animate fadeLeft">
                      <div class="card-content">
@@ -29,10 +46,10 @@
                         <p class="medium-small center-align">Orang</p>
                      </div>
                   </div>
-               </div>
+               </div> --}}
 
                {{-- Biodata Sekolah --}}
-               <div class="col s12">
+               {{-- <div class="col s12">
                     <div class="card animae fadeRight">
                             <div class="card-content">
                             <div class="card-title">Biodata Sekolah</div>
@@ -65,7 +82,7 @@
                         </div>
                     </div>
 
-               </div>
+               </div> --}}
             </div>
         </div>
     </div>

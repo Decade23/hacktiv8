@@ -30,31 +30,34 @@
                            </div>
                           
                            <div class="input-field col s12">
-                            <select name="jenis_kelamin" id="jenis_kelamin">
-                              <option value="" disabled selected>-- Pilih --</option>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="browser-default" data-placeholder="Pilih Jenis Kelamin">
+                              <option value=""></option>
                               <option value="pria">Pria</option>
                               <option value="wanita">Wanita</option>
                             </select>
-                            <label for="gender">Jenis Kelamin</label>
+                            <hr/>
+                            {{-- <label for="gender">Jenis Kelamin</label> --}}
                           </div>
 
                           <div class="input-field col s12">
-                            <select name="statusKawin" id="statusKawin">
-                              <option value="" disabled selected>-- Pilih --</option>
+                            <select name="statusKawin" id="statusKawin" class="browser-default" data-placeholder="Pilih Status Perkawinan">
+                              <option value=""></option>
                               <option value="lajang">Lajang</option>
                               <option value="menikah">Menikah</option>
                               <option value="bercerai">Bercerai</option>
                             </select>
-                            <label for="jabatan">Status Kawin</label>
+                            <hr/>
+                            {{-- <label for="jabatan">Status Kawin</label> --}}
                           </div>
 
                           <div class="input-field col s12">
-                            <select name="statusKepegawaian" id="statusKepegawaian">
-                              <option value="" disabled selected>-- Pilih --</option>
+                            <select name="statusKepegawaian" id="statusKepegawaian" class="browser-default" data-placeholder="Pilih Status Kepegawaian">
+                              <option value=""></option>
                               <option value="pns">PNS</option>
                               <option value="ptt">PTT</option>
                             </select>
-                            <label for="statusKepegawaian">Status Pegawai</label>
+                            <hr />
+                            {{-- <label for="statusKepegawaian">Status Pegawai</label> --}}
                           </div>
 
                           <div class="input-field col s12">
@@ -102,13 +105,13 @@
 @push('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
-  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}"> --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
 @endpush
 
 @push('js')
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-  {{-- <script src="{{ asset('js/select2.min.js') }}"></script> --}}
+  <script src="{{ asset('js/select2.min.js') }}"></script>
   <script>
     $(document).ready(function(){
       
@@ -120,7 +123,12 @@
         autoclose:true,
       });
 
-      // $('#jabatan').select2();
+      $('#statusKawin, #jenis_kelamin, #statusKepegawaian').select2({
+          theme: "bootstrap",
+          placeholder: "Select",
+          width: '100%',
+          // containerCssClass: ':all:',
+      });
     });
   </script>
 @endpush

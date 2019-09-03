@@ -13,6 +13,11 @@ class PegawaiController extends Controller
 {
     use RedirectTo;
 
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
     public function index()
     {
     	return view('backend.pegawai.index');
@@ -33,7 +38,7 @@ class PegawaiController extends Controller
     	return $this->redirectFailed(route('pegawai.index'), 'Gagal Menyimpan Data Pegawai');
     }
 
-    public function datatables(Request $request,PegawaiServiceContract $pegawaiServiceContract)
+    public function datatables(Request $request, PegawaiServiceContract $pegawaiServiceContract)
     {
         if ($request->ajax()) {
             # code...
@@ -42,5 +47,15 @@ class PegawaiController extends Controller
 
         abort('404', 'uups');
 
+    }
+
+    public function select2(Request $request, PegawaiServiceContract $pegawaiServiceContract){
+
+        if ($request->ajax() === true) {
+
+            return $pegawaiServiceContract->select2($request);
+        }
+
+        return abort('404', 'uups');
     }
 }

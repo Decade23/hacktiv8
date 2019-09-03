@@ -12,5 +12,9 @@ Route::group(['prefix' => 'pegawai'], function () {
         ->name('pegawai.store');
 
     Route::get('/ajax/data', 'PegawaiController@datatables')
-        ->name('pegawai.ajax.data');        
+        ->name('pegawai.ajax.data');
+
+    Route::get('/ajax/data/select2', 'PegawaiController@select2')
+        ->name('pegawai.ajax.select2');
+            
 });

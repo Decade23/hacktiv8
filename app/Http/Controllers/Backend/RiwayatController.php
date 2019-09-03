@@ -13,6 +13,11 @@ class RiwayatController extends Controller
 {
     use RedirectTo;
 
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
     public function index()
     {
     	return view('backend.riwayat_pendidikan.index');

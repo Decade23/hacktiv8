@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\UserProfile;
 use App\Traits\UserTrait;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Pagination\Paginator;
 
 class PegawaiService implements PegawaiServiceContract
 {
@@ -21,13 +22,10 @@ class PegawaiService implements PegawaiServiceContract
             $store = new UserProfile();
             $store->nip                 = $request->nip;
             $store->nama                = $request->nama;
-            //$store->no_ktp              = $request->noKtp;
-            //$store->email               = $request->email;
             $store->no_telepon          = $request->noTelepon;
             $store->tempat_lahir        = $request->tempat_lahir;
             $store->tanggal_lahir       = $request->tanggal_lahir;
             $store->jenis_kelamin       = $request->jenis_kelamin;
-            //$store->jabatan_id          = $request->jabatan;
             $store->status_kawin        = $request->statusKawin;
             $store->alamat              = $request->alamat;
             $store->status_kepegawaian  = $request->statusKepegawaian;
@@ -37,7 +35,7 @@ class PegawaiService implements PegawaiServiceContract
             // dd($store);
             
             #create User Login
-            $this->storeUserCredentials($request);
+            // $this->storeUserCredentials($request);
             
             DB::commit();
             return $store;
@@ -58,6 +56,32 @@ class PegawaiService implements PegawaiServiceContract
         $dataDb = UserProfile::select($select);
 
         return DataTables::eloquent($dataDb)->make(true);
+    }
+
+    public function select2($request)
+    {
+        try {
+            $perPage = 10;
+            $page    = $request->page ?? 1;
+
+            Paginator::currentPageResolver(
+                function () use ($page) {
+                    return $page;
+                }
+            );
+
+            $dataDb = UserProfile::select('id', DB::raw("concat( nama, ' (', nip, ') ') as text"))
+                // ->where('email', 'LIKE', '%'.$request->term.'%')
+                ->where('nama', 'LIKE', '%'.$request->term.'%')
+                ->orderBy('id')->paginate($perPage);
+
+            return $dataDb;
+
+        } catch (\Exception $exception) {
+
+            // dd($exception->getMessage());
+            return $exception->getCode();
+        }
     }
 
 }

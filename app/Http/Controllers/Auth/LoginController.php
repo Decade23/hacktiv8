@@ -44,7 +44,14 @@ class LoginController extends Controller
 
     public function loginFormProses(Request $request)
     {
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('logout');
     }
 
     
