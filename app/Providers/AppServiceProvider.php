@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Schema;
 
 use App\Services\Pegawai\PegawaiService;
 use App\Services\Pegawai\PegawaiServiceContract;
+use App\Services\RiwayatPendidikan\RiwayatPendidikanService;
+use App\Services\RiwayatPendidikan\RiwayatPendidikanServiceContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,8 +31,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             PegawaiServiceContract::class,
-            PegawaiService::class
-            
+            PegawaiService::class            
+        );
+
+        $this->app->bind(
+            RiwayatPendidikanServiceContract::class,
+            RiwayatPendidikanService::class            
         );
     }
 }

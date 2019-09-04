@@ -1,22 +1,17 @@
 <?php
 
-namespace App\Services\Pegawai;
+namespace App\Services\RiwayatPendidikan;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\UserProfile;
+use App\Models\RiwayatPendidikan;
 use App\Traits\UserTrait;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Pagination\Paginator;
 
-class PegawaiService implements PegawaiServiceContract
+class RiwayatPendidikanService implements RiwayatPendidikanServiceContract
 {
     use UserTrait;
-
-    public function get($id)
-    {
-        return UserProfile::find($id)->with('user_login')->first();
-    }
 
     public function store($request)
     {
@@ -24,16 +19,17 @@ class PegawaiService implements PegawaiServiceContract
 
         try {
             #save To DB...
-            $store = new UserProfile();
-            $store->nip                 = $request->nip;
-            $store->nama                = $request->nama;
-            $store->no_telepon          = $request->noTelepon;
-            $store->tempat_lahir        = $request->tempat_lahir;
-            $store->tanggal_lahir       = $request->tanggal_lahir;
-            $store->jenis_kelamin       = $request->jenis_kelamin;
-            $store->status_kawin        = $request->statusKawin;
-            $store->alamat              = $request->alamat;
-            $store->status_kepegawaian  = $request->statusKepegawaian;
+            $store = new RiwayatPendidikan();
+            $store->user_id                 = $request->userSearch;
+            $store->tingkat_pendidikan      = $request->tingkatPendidikan;
+            $store->nama_sekolah            = $request->namaSekolah;
+            $store->alamat_sekolah          = $request->alamatSekolah;
+            $store->jurusan                 = $request->jurusan;
+            $store->no_ijazah               = $request->noIjazah;
+            $store->tanggal_ijazah          = $request->jenis_kelamin;
+            $store->file_ijazah             = $request->fileIjazah;
+            $store->file_transkip_ijazah    = $request->fileTranskipIjazah;
+            $store->file_sertifikat_pendidik= $request->fileSertifikatPendidik;
 
             $store->save();
 
@@ -55,17 +51,12 @@ class PegawaiService implements PegawaiServiceContract
     public function datatables($request)
     {
         $select = [
-            'user_profile.id', 'nip', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'status_kawin','status_kepegawaian', 'no_telepon', 'user_profile.created_at'
+            'user_id', 'tingkat_pendidikan', 'nama_sekolah', 'alamat_sekolah', 'jurusan', 'no_ijazah', 'tanggal_ijazah', 'file_ijazah', 'file_transkip_ijazah','file_sertifikat_pendidik', 'riwayat_pendidikan.created_at'
         ];
 
-        $dataDb = UserProfile::select($select);
+        $dataDb = RiwayatPendidikan::select($select)->with('user_profile');
 
-        return DataTables::eloquent($dataDb)
-                ->addColumn('action', function($dataDb) {
-                    return '<a href="'.route('pegawai.update', $dataDb->id).'">view</a> <a href="'.route('pegawai.update', $dataDb->id).'">delete</a>';
-                })
-                ->rawColumns(['action'])
-                ->make(true);
+        return DataTables::eloquent($dataDb)->make(true);
     }
 
     public function select2($request)

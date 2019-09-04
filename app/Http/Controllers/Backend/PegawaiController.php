@@ -38,6 +38,12 @@ class PegawaiController extends Controller
     	return $this->redirectFailed(route('pegawai.index'), 'Gagal Menyimpan Data Pegawai');
     }
 
+    public function update($id, PegawaiServiceContract $pegawaiServiceContract)
+    {   
+        dd($pegawaiServiceContract->get($id));
+        return view('backend.pegawai.update', compact($pegawaiServiceContract->get($id) ) );
+    }
+
     public function datatables(Request $request, PegawaiServiceContract $pegawaiServiceContract)
     {
         if ($request->ajax()) {

@@ -7,7 +7,7 @@
         @include('layouts.menus.dashboard')
         @include('layouts.menus.pegawai')
         @include('layouts.menus.kepegawaian')
-        @include('layouts.menus.report')
+        {{-- @include('layouts.menus.report') --}}
         {{-- end menus --}}
     </ul>
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>

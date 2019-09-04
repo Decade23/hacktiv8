@@ -8,6 +8,12 @@ Route::group(['prefix' => 'pegawai'], function () {
     Route::get('/create', 'PegawaiController@create')
         ->name('pegawai.create');
 
+    Route::get('/update/{id}', 'PegawaiController@update')
+        ->name('pegawai.update');
+
+    Route::delete('/delete/{id}', 'PegawaiController@delete')
+        ->name('pegawai.delete');
+
     Route::get('/store', 'PegawaiController@store')
         ->name('pegawai.store');
 

@@ -7,7 +7,7 @@ use App\Http\Requests\Pegawai\pegawaiRequest;
 use App\Http\Controllers\Controller;
 use App\Traits\RedirectTo;
 
-use App\Services\Pegawai\PegawaiServiceContract;
+use App\Services\RiwayatPendidikan\RiwayatPendidikanServiceContract;
 
 class RiwayatController extends Controller
 {
@@ -39,11 +39,11 @@ class RiwayatController extends Controller
     	return $this->redirectFailed(route('pegawai.index'), 'Gagal Menyimpan Data Pegawai');
     }
 
-    public function datatables(Request $request,PegawaiServiceContract $pegawaiServiceContract)
+    public function datatables(Request $request, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
     {
         if ($request->ajax()) {
             # code...
-            return $pegawaiServiceContract->datatables($request);
+            return $riwayatPendidikanServiceContract->datatables($request);
         }
 
         return abort(404, 'uups');

@@ -12,19 +12,19 @@
                   <div class="row">
             <div class="col s12">
               <a class="waves-effect waves-light btn-small" href="{{ route('riwayat_pendidikan.create') }}">Create</a>
-              <table id="table-pegawai" class="display nowrap">
+              <table id="table-riwayat-pendidikan" class="display nowrap">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>NIP</th>
-                    <th>Nama</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Status Kawin</th>
-                    <th>Alamat</th>
+                    <th>User</th>
+                    <th>Tingkat Pendidikan</th>
+                    <th>Nama Sekolah</th>
+                    <th>Alamat Sekolah</th>
+                    <th>Jurusan</th>
+                    <th>Tanggal Ijazah</th>
+                    {{-- <th>File Ijazah</th>
                     <th>No Phone</th>
-                    <th>Status Kepegawaian</th>
+                    <th>Status Kepegawaian</th> --}}
                     <th>Created At</th>
                   </tr>
                 </thead>
@@ -54,27 +54,24 @@
   <script src="{{ asset('js/datatables/jquery.dataTables.min.js') }}"></script>
   <script>
     $(document).ready(function(){
-      let table = $('#table-pegawai').DataTable({
+      let table = $('#table-riwayat-pendidikan').DataTable({
          scrollY: 200,
-         scrollX: true,
+         //scrollX: true,
          processing: true,
          serverSide: true,
          ajax: {
-              url: '{!! route('pegawai.ajax.data') !!}',
+              url: '{!! route('riwayat_pendidikan.ajax.data') !!}',
               dataType: 'json'
           },
           columns: [
               {data: 'id', name: 'id', visible: false},
-              {data: 'nip', name: 'nip'},
-              {data: 'nama', name: 'nama'},
-              {data: 'tempat_lahir', name: 'tempat_lahir'},
-              {data: 'tanggal_lahir', name: 'tanggal_lahir'},
-              {data: 'jenis_kelamin', name: 'jenis_kelamin'},
-              {data: 'status_kawin', name: 'status_kawin'},
-              {data: 'alamat', name: 'alamat'},
-              {data: 'no_telepon', name: 'no_telepon'},
-              {data: 'status_kepegawaian', name: 'status_kepegawaian'},
-
+              {data: 'user_profile.nama', name: 'user_profile.nama'},
+              {data: 'tingkat_pendidikan', name: 'tingkat_pendidikan'},
+              {data: 'nama_sekolah', name: 'nama_sekolah'},
+              {data: 'alamat_sekolah', name: 'alamat_sekolah'},
+              {data: 'jurusan', name: 'jurusan'},
+              {data: 'tanggal_ijazah', name: 'tanggal_ijazah'},
+              
               {data: 'created_at', name: 'created_at'},
               // {
               //     data: 'action', name: 'action', orderable: false, searchable: false,

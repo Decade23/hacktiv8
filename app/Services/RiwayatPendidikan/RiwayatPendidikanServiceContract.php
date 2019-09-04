@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Services\Pegawai;
+namespace App\Services\RiwayatPendidikan;
 
-interface PegawaiServiceContract
+interface RiwayatPendidikanServiceContract
 {
-	public function get($id);
-	
     public function store($request);
 
     public function datatables($request);
