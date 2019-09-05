@@ -24,16 +24,7 @@
                   </div>
                </div> --}}
 
-               <div class="col s12">
-                  <!-- Current Balance -->
-                  <div class="card animate fadeRight">
-                     <div class="card-content">
-                        <h4 class="card-title mb-0">Selamat Datang Di Sistem Arsip Kepegawaian MAN 1</h4>
-                     </div>
-                  </div>
-               </div>
-
-                {{-- <div class="col s12 m4 l4">
+               <div class="col s12 m4 l4">
                   <!-- Current Balance -->
                   <div class="card animate fadeLeft">
                      <div class="card-content">
@@ -46,7 +37,78 @@
                         <p class="medium-small center-align">Orang</p>
                      </div>
                   </div>
-               </div> --}}
+               </div>
+
+               <div class="col s12 m4 l4">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeLeft">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Jumlah TU <i class="material-icons float-right">more_vert</i></h4>
+                        <p class="medium-small">Total Data</p>
+                        <div class="current-balance-container">
+                           <div id="current-balance-donut-chart" class="current-balance-shadow"></div>
+                        </div>
+                        <h5 class="center-align">10</h5>
+                        <p class="medium-small center-align">Orang</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col s12 m4 l4">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeLeft">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Jumlah Satpam <i class="material-icons float-right">more_vert</i></h4>
+                        <p class="medium-small">Total Data</p>
+                        <div class="current-balance-container">
+                           <div id="current-balance-donut-chart" class="current-balance-shadow"></div>
+                        </div>
+                        <h5 class="center-align">10</h5>
+                        <p class="medium-small center-align">Orang</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col s12 m4 l4">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeLeft">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Jumlah Petugas Kebersihan <i class="material-icons float-right">more_vert</i></h4>
+                        <p class="medium-small">Total Data</p>
+                        <div class="current-balance-container">
+                           <div id="current-balance-donut-chart" class="current-balance-shadow"></div>
+                        </div>
+                        <h5 class="center-align">10</h5>
+                        <p class="medium-small center-align">Orang</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col s12 m4 l4">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeLeft">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Teknisi <i class="material-icons float-right">more_vert</i></h4>
+                        <p class="medium-small">Total Data</p>
+                        <div class="current-balance-container">
+                           <div id="current-balance-donut-chart" class="current-balance-shadow"></div>
+                        </div>
+                        <h5 class="center-align">10</h5>
+                        <p class="medium-small center-align">Orang</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col s12">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeRight">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Selamat Datang Di Sistem Informasi Manajemen Arsip Kepegawaian MAN 1 Kota Bekasi</h4>
+                     </div>
+                  </div>
+               </div>
+
+                
 
                {{-- Biodata Sekolah --}}
                {{-- <div class="col s12">

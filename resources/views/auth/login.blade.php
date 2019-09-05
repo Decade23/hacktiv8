@@ -47,7 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
       {{ csrf_field() }}
       <div class="row">
         <div class="input-field col s12">
-          <h5 class="ml-4">Sistem Arsip Kepegawaian</h5>
+          <h5 class="ml-4">SIMARPEG</h5>
           <h5 class="ml-4">Sign in</h5>
           @include('response')
         </div>
