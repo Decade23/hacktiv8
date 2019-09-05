@@ -2,17 +2,25 @@
 
 @section('content')
 <div id="main">
-  <div class="row">
-    <div class="col s12">
-        <div class="container">
-            <div class="card">
-                <div class="card-content">
-                  <div class="card-title">Form Pegawai</div>
-                  @include('response')
-                <form action="{{ route('pegawai.store') }}">
+    <div class="row">
+        <div class="col s12">
+            <div class="container">
+               <div class="col s12">
+                  <!-- Current Balance -->
+                  <div class="card animate fadeRight">
+                     <div class="card-content">
+                        <h4 class="card-title">Form Pegawai</h4>
+                     </div>
+
+                     <form action="{{ route('pegawai.store') }}">
                           <div class="input-field col s12">
                             <input id="nip" name="nip" type="text" class="validate">
                             <label for="nip">NIP/PEG.ID</label>
+                          </div>
+
+                          <div class="input-field col s12">
+                            <input id="nip" name="nip" type="text" class="validate">
+                            <label for="nip">Nomor KTP</label>
                           </div>
 
                           <div class="input-field col s12">
@@ -25,7 +33,7 @@
                               <label for="tempat_lahir">Tempat Lahir</label>
                            </div>
                            <div class="input-field col s6">
-                              <input id="tanggal_lahir" name="tanggal_lahir" type="text" class="validate">
+                              <input id="tanggal_lahir" name="tanggal_lahir" type="text" placeholder="dob" class="validate">
                               <label for="tanggal_lahir">Tanggal Lahir</label>
                            </div>
                           
@@ -69,48 +77,32 @@
                             <input id="noTelepon" name="noTelepon" type="text" class="validate">
                             <label for="noTelepon">No Telepon</label>
                           </div>
-                          
                                           
-                          
-
-                           
-
-                          
-
-                          {{-- <div class="input-field col s3">
-                            <select name="jabatan" id="jabatan">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="1">Jabatan 1</option>
-                              <option value="2">Jabatan 2</option>
-                            </select>
-                            <label for="jabatan">Jabatan</label>
-                          </div> --}}
-
                           <div class="input-field col s12">
                             <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
+                  </form>
 
-                    </form>
-                </div>
+                  </div>
+               </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
   
 @endsection
 
 @push('css')
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> --}}
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}"> --}}
   <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
 @endpush
 
 @push('js')
-  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+  {{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
+  {{-- <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script> --}}
   <script src="{{ asset('js/select2.min.js') }}"></script>
   <script>
     $(document).ready(function(){

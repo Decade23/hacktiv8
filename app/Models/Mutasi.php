@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Jabatan extends Model
+class Mutasi extends Model
 {
-    protected $table = 'jabatan';
+    protected $table = 'mutasi';
     
     protected $fillable = [
-        'user_id', 'jabatan', 'golongan', 'tmt_jabatan', 'sk_file_jabatan'
+        'user_id', 'jenis_mutasi', 'tanggal_mutasi', 'sk_mutasi'
     ];
 
     public function user_profile()

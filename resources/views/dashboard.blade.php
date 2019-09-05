@@ -16,13 +16,13 @@
                     </div>
                 </div> --}}
 
-                <div class="col s12">
+                {{-- <div class="col s12">
                   <div class="card animate fadeLeft">
                      <div class="card-content">
                         <h4 class="card-title mb-0">Haloo Eneng / Ncip / Thiara / Cochocip, pules banget tidurnya :'(</h4>
                      </div>
                   </div>
-               </div>
+               </div> --}}
 
                <div class="col s12">
                   <!-- Current Balance -->
