@@ -11,10 +11,14 @@ Route::group(['prefix' => 'pegawai'], function () {
     Route::get('/update/{id}', 'PegawaiController@update')
         ->name('pegawai.update');
 
+    Route::put('/update/{id}/edit', 'PegawaiController@edit')
+        ->name('pegawai.edit');
+            
+
     Route::delete('/delete/{id}', 'PegawaiController@delete')
         ->name('pegawai.delete');
 
-    Route::get('/store', 'PegawaiController@store')
+    Route::post('/store', 'PegawaiController@store')
         ->name('pegawai.store');
 
     Route::get('/ajax/data', 'PegawaiController@datatables')

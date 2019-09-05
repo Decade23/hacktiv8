@@ -12,15 +12,16 @@
                         <h4 class="card-title">Form Pegawai</h4>
                      </div>
 
-                     <form action="{{ route('pegawai.store') }}">
+                     <form action="{{ route('pegawai.store') }}" method="POST">
+                      {!! csrf_field() !!}
                           <div class="input-field col s12">
                             <input id="nip" name="nip" type="text" class="validate">
                             <label for="nip">NIP/PEG.ID</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="nip" name="nip" type="text" class="validate">
-                            <label for="nip">Nomor KTP</label>
+                            <input id="ktp" name="ktp" type="text" class="validate">
+                            <label for="ktp">Nomor KTP</label>
                           </div>
 
                           <div class="input-field col s12">
@@ -95,14 +96,14 @@
 @endsection
 
 @push('css')
-  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> --}}
-  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}"> --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
 @endpush
 
 @push('js')
-  {{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
-  {{-- <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script> --}}
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
   <script src="{{ asset('js/select2.min.js') }}"></script>
   <script>
     $(document).ready(function(){

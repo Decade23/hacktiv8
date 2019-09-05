@@ -26,14 +26,15 @@ class PegawaiService implements PegawaiServiceContract
             #save To DB...
             $store = new UserProfile();
             $store->nip                 = $request->nip;
+            $store->ktp                 = $request->ktp;
             $store->nama                = $request->nama;
-            $store->no_telepon          = $request->noTelepon;
             $store->tempat_lahir        = $request->tempat_lahir;
             $store->tanggal_lahir       = $request->tanggal_lahir;
             $store->jenis_kelamin       = $request->jenis_kelamin;
             $store->status_kawin        = $request->statusKawin;
-            $store->alamat              = $request->alamat;
             $store->status_kepegawaian  = $request->statusKepegawaian;
+            $store->alamat              = $request->alamat;
+            $store->no_telepon          = $request->noTelepon;
 
             $store->save();
 

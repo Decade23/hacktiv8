@@ -40,8 +40,20 @@ class PegawaiController extends Controller
 
     public function update($id, PegawaiServiceContract $pegawaiServiceContract)
     {   
-        dd($pegawaiServiceContract->get($id));
-        return view('backend.pegawai.update', compact($pegawaiServiceContract->get($id) ) );
+        // dd($pegawaiServiceContract->get($id));
+        $dataDb = $pegawaiServiceContract->get($id);
+        // dd($dataDb->status_kawin);
+        return view('backend.pegawai.update', compact( 'dataDb' ) );
+    }
+
+    public function edit(pegawaiRequest $request, PegawaiServiceContract $pegawaiServiceContract)
+    {   
+        // dd($request->all());
+        if (is_object($pegawaiServiceContract->edit($request))) {
+            # bump...
+            return $this->redirectSuccessCreate(route('pegawai.index'), $request->nama);
+        }
+        return $this->redirectFailed(route('pegawai.index'), 'Gagal Menyimpan Data Pegawai');
     }
 
     public function datatables(Request $request, PegawaiServiceContract $pegawaiServiceContract)
