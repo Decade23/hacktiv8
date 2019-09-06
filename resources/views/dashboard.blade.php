@@ -24,13 +24,13 @@
                   </div>
                </div> --}}
 
-               <div class="col s12">
+               {{-- <div class="col s12">
                   <div class="card animate fadeLeft">
                      <div class="card-content">
                         <h4 class="card-title mb-0">Holaa Cochocip, Istirahat yaa . mimpi indah. :* <br /> aplikasi nya jangan dipikirin , InsyaAllah tau2 udah kelar :D</h4>
                      </div>
                   </div>
-               </div>
+               </div> --}}
 
                <div class="col s12 m4 l4">
                   <!-- Current Balance -->

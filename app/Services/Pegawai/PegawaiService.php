@@ -53,21 +53,60 @@ class PegawaiService implements PegawaiServiceContract
         }
     }
 
+    public function edit($request)
+    {
+        DB::beginTransaction();
+
+        try {
+            #save To DB...
+            $edit = UserProfile::find($request->id);
+            $dataUpdate = [
+                'nip'                 => $request->nip,
+                'ktp'                 => $request->ktp,
+                'nama'                => $request->nama,
+                'tempat_lahir'        => $request->tempat_lahir,
+                'tanggal_lahir'       => $request->tanggal_lahir,
+                'jenis_kelamin'       => $request->jenis_kelamin,
+                'status_kawin'        => $request->status_kawin,
+                'status_kepegawaian'  => $request->statusKepegawaian,
+                'alamat'              => $request->alamat,
+                'no_telepon'          => $request->noTelepon
+            ];
+
+            $edit->update($dataUpdate);
+            
+            DB::commit();
+            return $edit;
+        } catch (\Exception $e) {
+            //throw $th;
+            DB::rollback();
+            dd($e->getMessage().' '.$e->getLine());
+            return $e->getCode();
+        }
+    }
+
     public function datatables($request)
     {
         $select = [
-            'user_profile.id', 'nip', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'status_kawin','status_kepegawaian', 'no_telepon', 'user_profile.created_at'
+            'user_profile.id', 'nip', 'ktp', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'status_kawin','status_kepegawaian', 'no_telepon', 'user_profile.created_at'
         ];
 
         $dataDb = UserProfile::select($select);
 
         return DataTables::eloquent($dataDb)
                 ->addColumn('action', function($dataDb) {
-                    return '<a href="'.route('pegawai.update', $dataDb->id).'">view</a> <a href="'.route('pegawai.update', $dataDb->id).'">delete</a>';
+                    return '<a href="'.route('pegawai.update', $dataDb->id).'"><i class="material-icons" title="ubah" id="tooltip">autorenew</i></a><a href="'.route('pegawai.delete', $dataDb->id).'" title="hapus" id="tooltip"><i class="material-icons">clear</i></a><a href="'.route('pegawai.show', $dataDb->id).'" title="lihat" id="tooltip"><i class="material-icons">remove_red_eye</i></a>';
                 })
                 ->rawColumns(['action'])
                 ->make(true);
     }
+
+    public function delete($id)
+    {
+        return UserProfile::find($id)->delete();
+
+    }
+
 
     public function select2($request)
     {

@@ -8,6 +8,10 @@ interface PegawaiServiceContract
 	
     public function store($request);
 
+    public function edit($request);
+
+    public function delete($id);
+
     public function datatables($request);
 
     public function select2($request);

@@ -11,9 +11,11 @@ Route::group(['prefix' => 'pegawai'], function () {
     Route::get('/update/{id}', 'PegawaiController@update')
         ->name('pegawai.update');
 
+    Route::get('/show/{id}', 'PegawaiController@show')
+        ->name('pegawai.show');
+
     Route::put('/update/{id}/edit', 'PegawaiController@edit')
-        ->name('pegawai.edit');
-            
+        ->name('pegawai.edit');            
 
     Route::delete('/delete/{id}', 'PegawaiController@delete')
         ->name('pegawai.delete');

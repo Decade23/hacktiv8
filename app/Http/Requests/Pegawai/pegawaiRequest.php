@@ -23,21 +23,36 @@ class pegawaiRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'nip'                           => 'required|unique:user_profile,nip',
-            //'noKtp'                         => 'required',
-            'nama'                          => 'required',
-            //'email'                         => 'required|email',
-            'noTelepon'                     => 'required',
-            'tempat_lahir'                  => 'required',
-            'tanggal_lahir'                 => 'required|date',
-            'jenis_kelamin'                 => 'required',
-            'statusKawin'                   => 'required',
-            //'jabatan'                       => 'required',
-            'statusKepegawaian'             => 'required',
-            'alamat'                        => 'required',
-            
-        ];
+        if (request()->method == 'POST') {
+            # code...
+            return [
+                'nip'                           => 'required|unique:user_profile,nip',
+                'ktp'                           => 'required|unique:user_profile,ktp',
+                'nama'                          => 'required',
+                'tempat_lahir'                  => 'required',
+                'tanggal_lahir'                 => 'required|date',
+                'jenis_kelamin'                 => 'required',
+                'statusKawin'                   => 'required',
+                'statusKepegawaian'             => 'required',
+                'alamat'                        => 'required',
+                'noTelepon'                     => 'required',
+            ];
+        } else {
+            # code...
+            return [
+                'nip'                           => 'required|unique:user_profile,nip,'.request()->id,
+                'ktp'                           => 'required|unique:user_profile,ktp,'.request()->id,
+                'nama'                          => 'required',
+                'tempat_lahir'                  => 'required',
+                'tanggal_lahir'                 => 'required|date',
+                'jenis_kelamin'                 => 'required',
+                'statusKawin'                   => 'required',
+                'statusKepegawaian'             => 'required',
+                'alamat'                        => 'required',
+                'noTelepon'                     => 'required',
+            ];
+        }
+
     }
 
     // public function messages()
