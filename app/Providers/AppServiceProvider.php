@@ -9,6 +9,8 @@ use App\Services\Pegawai\PegawaiService;
 use App\Services\Pegawai\PegawaiServiceContract;
 use App\Services\RiwayatPendidikan\RiwayatPendidikanService;
 use App\Services\RiwayatPendidikan\RiwayatPendidikanServiceContract;
+use App\Services\Mutasi\MutasiService;
+use App\Services\Mutasi\MutasiServiceContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,6 +39,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             RiwayatPendidikanServiceContract::class,
             RiwayatPendidikanService::class            
+        );
+
+        $this->app->bind(
+            MutasiServiceContract::class,
+            MutasiService::class            
         );
     }
 }

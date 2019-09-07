@@ -26,7 +26,7 @@ class riwayatpendidikanRequest extends FormRequest
         if (request()->method == 'POST') {
             # code...
             return [
-                'userSearch'               => 'required|unique:user_profile,id,'.request()->id,
+                'userSearch'               => 'required|exists:user_profile,id',//unique:user_profile,id,'.request()->id,
                 'tingkatPendidikan'        => 'required',
                 'namaSekolah'              => 'required',
                 'alamatSekolah'            => 'required',

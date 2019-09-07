@@ -80,6 +80,7 @@
                           </div>
 
                           <div class="input-field col s12">
+                            <a class="btn waves-effect waves-light" href="{{ url()->previous() }}">Back</a>
                             <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
                               <i class="material-icons right">send</i>
                             </button>

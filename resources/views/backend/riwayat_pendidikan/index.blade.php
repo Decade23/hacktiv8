@@ -113,10 +113,10 @@
     function viewImage(url)
     //console.log(url);
     {
-      $('#view_title').text('File Ijazah');
+      $('#view_title').text('File');
       $('#imgView').attr({
         src: url,
-        alt: 'Ijazah'
+        alt: 'File'
       });
       $('#view_image').modal('open');
     }
