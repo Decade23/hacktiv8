@@ -7,45 +7,47 @@
         <div class="container">
             <div class="card">
                 <div class="card-content">
-                  <div class="card-title">Form Riwayat Pendidikan</div>
+                  <div class="card-title">Update Riwayat Bekasi ( {{ $dataDb->user_profile->nama }} | {{ $dataDb->user_profile->nip }} )</div>
                   @include('response')
-                <form action="{{ route('riwayat_pendidikan.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('riwayat_pendidikan.edit', $dataDb->id) }}" method="POST" enctype="multipart/form-data">
                   {!! csrf_field() !!}
+                  {{method_field('PUT')}}
                           <div class="input-field col s12">
-                            <select name="userSearch" id="userSearch" class="browser-default" data-placeholder="Ketik Email/Nama">
+                            <select name="userSearch" id="userSearch" class="browser-default" data-placeholder="Ketik Email/Nama" disabled>
                               <option value=""></option>
+                              <option value="{{ $dataDb->user_profile->id }}" @if(old('userSearch', $dataDb->user_profile->id) === $dataDb->user_profile->id) selected @endif>{{ $dataDb->user_profile->nama }} ({{ $dataDb->user_profile->nip }})</option>
                             </select>
                             <hr />
                             {{-- <label for="statusKepegawaian">Status Pegawai</label> --}}
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="tingkatPendidikan" name="tingkatPendidikan" type="text" class="validate">
+                            <input id="tingkatPendidikan" name="tingkatPendidikan" type="text" class="validate" value="{{ $dataDb->tingkat_pendidikan }}">
                             <label for="tingkatPendidikan">Tingkat Pendidikan</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="namaSekolah" name="namaSekolah" type="text" class="validate">
+                            <input id="namaSekolah" name="namaSekolah" type="text" class="validate" value="{{ $dataDb->nama_sekolah }}">
                             <label for="namaSekolah">Nama Sekolah/Universitas</label>
                           </div>
                           
                           <div class="input-field col s12">
-                            <input id="alamatSekolah" name="alamatSekolah" type="text" class="validate">
+                            <input id="alamatSekolah" name="alamatSekolah" type="text" class="validate" value="{{ $dataDb->alamat_sekolah }}">
                             <label for="alamatSekolah">Alamat Sekolah/Universitas</label>
                           </div>
                           
                           <div class="input-field col s12">
-                            <input id="jurusan" name="jurusan" type="text" class="validate">
+                            <input id="jurusan" name="jurusan" type="text" class="validate" value="{{ $dataDb->jurusan }}">
                             <label for="jurusan">Jurusan</label>
                           </div>
                           
                           <div class="input-field col s6">
-                            <input id="noIjazah" name="noIjazah" type="text" class="validate">
+                            <input id="noIjazah" name="noIjazah" type="text" class="validate" value="{{ $dataDb->no_ijazah }}">
                             <label for="noIjazah">Nomor Ijazah</label>
                           </div>
 
                           <div class="input-field col s6">
-                            <input id="tanggalIjazah" name="tanggalIjazah" type="text" class="validate" placeholder="Tanggal Ijazah">
+                            <input id="tanggalIjazah" name="tanggalIjazah" type="text" class="validate" placeholder="Tanggal Ijazah" value="{{ $dataDb->tanggal_ijazah }}">
                             <label for="tanggalIjazah">Tanggal Ijazah</label>
                           </div>
 
@@ -79,8 +81,14 @@
                             </div>
                           </div>
 
+                          {{-- hidden --}}
+                          <input type="hidden" name="fileSertifikatPendidikHidden" value="{{ $dataDb->file_sertifikat_pendidik }}">
+                          <input type="hidden" name="fileTranskipIjazahHidden" value="{{ $dataDb->file_transkip_ijazah }}">
+                          <input type="hidden" name="fileIjazahHidden" value="{{ $dataDb->file_ijazah }}">
+
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                            <a class="btn waves-effect waves-light" href="{{ url()->previous() }}">Back</a>
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Update
                               <i class="material-icons right">send</i>
                             </button>
                           </div>

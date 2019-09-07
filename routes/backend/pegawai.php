@@ -17,7 +17,7 @@ Route::group(['prefix' => 'pegawai'], function () {
     Route::put('/update/{id}/edit', 'PegawaiController@edit')
         ->name('pegawai.edit');            
 
-    Route::delete('/delete/{id}', 'PegawaiController@delete')
+    Route::delete('/delete', 'PegawaiController@delete')
         ->name('pegawai.delete');
 
     Route::post('/store', 'PegawaiController@store')
@@ -25,6 +25,9 @@ Route::group(['prefix' => 'pegawai'], function () {
 
     Route::get('/ajax/data', 'PegawaiController@datatables')
         ->name('pegawai.ajax.data');
+
+    Route::get('/ajax/data/first', 'PegawaiController@getDataDb')
+        ->name('pegawai.ajax.dataDb');
 
     Route::get('/ajax/data/select2', 'PegawaiController@select2')
         ->name('pegawai.ajax.select2');

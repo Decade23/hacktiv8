@@ -5,54 +5,36 @@
   </div>
 </footer>
 
- <!-- Modal Trigger -->
-  {{-- <a class="waves-effect waves-light btn modal-trigger" href="#hapus">Modal</a> --}}
-  <!-- Modal Structure -->
-  <div id="hapus" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+<!-- Modal Trigger -->
+{{-- <a class="waves-effect waves-light btn modal-trigger" href="#hapus">Modal</a> --}}
 
-<!-- Remove Modal -->
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close btn-sm" data-dismiss="modal" aria-hidden="true">x</button>
-                <h4 class="modal-title custom_align text-danger" id="titles"><i class="fa fa-warning"></i> Attention</h4>
-            </div>
-            <form action="" method="post" id="remove-form">
-                {!! csrf_field() !!}
+<!-- Modal Hapus -->
+<div id="hapus" class="modal">
+<div class="modal-content">
+  <h4>Perhatian</h4>
+  <p>Anda yakin akan menghapus data ini ? <br /><small><code>tindakan ini tidak dapat di ulang kembali.</code></small></p>
+</div>
+<form action="" method="POST" id="delete-form">
+	{!! csrf_field() !!}
+	{{method_field('DELETE')}}
 
-                <input name="_method" type="hidden" id="method" value="DELETE">
-
-                <div class="remove-form-list"></div>
-
-                <div class="modal-body">
-                    <div class="alert alert-micro alert-border-left alert-danger alert-dismissable">
-                        <i class="fa fa-info pr10"></i>
-                        <span id="message"></span>
-                    </div>
-                </div>
-
-                <div class="modal-footer ">
-                    <button type="submit" class="btn ladda-button btn-success btn-sm send-request" data-style="zoom-in">
-                        <span class="ladda-label"><span class="fa fa-check"></span> @lang('global.yes')</span>
-                        <span class="ladda-spinner"><div class="ladda-progress" style="width: 0px;"></div></span></button>
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span class="fa fa-times"></span> @lang('global.no')</button>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
+	<input type="hidden" name="id" id="id" value="">
+	<div class="modal-footer">
+		<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat" style="color: red;">Tidak</a>
+		{{-- <button class="modal-close waves-effect waves-green btn-flat" style="color: red;">Tidak</button> --}}
+		<button type="submit" class="modal-close waves-effect waves-green btn-flat">Ya!</button>
+	  {{-- <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a> --}}
+	</div>	
+</form>
 </div>
 
+<!-- Modal View Image-->
+<div id="view_image" class="modal">
+	<div class="modal-content">
+	  <h4 id="view_title"></h4>
+	  <img src="" alt="" id="imgView" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 100%; height:50%; cursor:pointer;">
+	</div>
+</div>
 
 
 

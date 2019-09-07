@@ -33,7 +33,6 @@
                </div> --}}
 
                <div class="col s12 m4 l4">
-                  <!-- Current Balance -->
                   <div class="card animate fadeLeft">
                      <div class="card-content">
                         <h4 class="card-title mb-0">Jumlah Guru <i class="material-icons float-right">more_vert</i></h4>

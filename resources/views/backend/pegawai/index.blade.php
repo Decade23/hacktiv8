@@ -90,56 +90,44 @@
           ],
       })
 
-      // let table = $('#table-pegawai').DataTable({
-      //       aaSorting: [[0, 'desc']],
-      //       iDisplayLength: 25,
-      //       "scrollY": 200,
-      //       "scrollX": true
-      //       //stateSave: true,
-      //       responsive: true,
-      //       fixedHeader: true,
-      //       processing: true,
-      //       serverSide: true,
-      //       dom: "<'dt-panelmenu clearfix'<'row'<'col-sm-2'B><'col-sm-4'l><'col-sm-6'f>>>" +
-      //           "<'row'<'col-sm-12'tr>>" +
-      //           "<'dt-panelfooter clearfix'<'row'<'col-sm-5'i><'col-sm-7'p>>>",
-      //       pagingType: "full_numbers",
-      //       ajax: {
-      //           url: '{!! route('pegawai.ajax.data') !!}',
-      //           dataType: 'json'
-      //       },
-      //       columns: [
-      //           {data: 'id', name: 'id', visible: false},
-      //           {
-      //               data: 'checkbox', name: 'checkbox', orderable: false, searchable: false,
-      //               checkboxes: true
-      //           },
-      //           {data: 'title', name: 'title'},
-      //           {data: 'status', name: 'status'},
-
-      //           {data: 'created_at', name: 'created_at'},
-      //           {
-      //               data: 'action', name: 'action', orderable: false, searchable: false,
-      //               fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
-      //                   $("a", nTd).tooltip({container: 'body'});
-      //               }
-      //           }
-      //       ],
-      //       columnDefs: [
-      //           {
-      //               targets: 1,
-      //               className: 'text-center'
-      //           },
-      //       ],
-      //       buttons: [
-      //           {
-      //               extend: 'colvis',
-      //               text: '<i class="fa fa-columns"></i> @lang('auth.index_column')',
-      //               columns: '1, 2, 3, 4, 5'
-      //           }
-      //       ],
-      //       select: 'multi'
-      //   });
     });
+
+    $(function() {
+            $('.modal').modal();
+        //     $('#modal3').modal('open');
+        //     $('#modal3').modal('close');
+      });
+
+    function hapusData(id=null)
+    {
+      let form = $('#delete-form').closest('form');
+      
+      form.attr('action', '{{route('pegawai.delete')}}');
+      $('#method').val('DELETE');
+      $('#id').val(id);
+      $('#hapus').modal('open');
+
+    }
+
+    // function viewData(id)
+    // {
+    //   console.log(id);
+    //   $.ajax({
+    //     url: '{{ route('pegawai.ajax.dataDb') }}',
+    //     type: 'POST',
+    //     dataType: 'JSON',
+    //     data: {id: id},
+    //     beforeSend: function(){
+    //       $('#load_view').show();
+    //     },
+    //     success: function(res){
+    //       console.log(res);
+    //     }
+
+    //   })
+      
+    //   $('#view_modal').modal('open');
+    // }
+
   </script>
 @endpush

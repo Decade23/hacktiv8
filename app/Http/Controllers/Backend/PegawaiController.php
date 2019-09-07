@@ -49,12 +49,12 @@ class PegawaiController extends Controller
     {
         $dataDb = $pegawaiServiceContract->get($id);
 
-        return view('pegawai.show', compact( $dataDb ));
+        return view('backend.pegawai.show', compact( 'dataDb' ));
     }
 
-    public function delete($id, PegawaiServiceContract $pegawaiServiceContract)
+    public function delete(Request $request, PegawaiServiceContract $pegawaiServiceContract)
     {   
-        $pegawaiServiceContract->delete($id);
+        $pegawaiServiceContract->delete($request->id);
 
         return $this->redirectSuccessDelete(route('pegawai.index'), 'Data');
     }

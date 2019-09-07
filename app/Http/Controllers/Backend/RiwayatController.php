@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\Pegawai\pegawaiRequest;
+use App\Http\Requests\RiwayatPendidikan\riwayatpendidikanRequest;
 use App\Http\Controllers\Controller;
 use App\Traits\RedirectTo;
 
@@ -29,14 +29,45 @@ class RiwayatController extends Controller
         return view('backend.riwayat_pendidikan.create');
     }
 
-    public function store(pegawaiRequest $request, PegawaiServiceContract $pegawaiServiceContract)
+    public function store(Request $request, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
+    {   
+        // dd($request->file('fileIjazah'));
+        if (is_object($riwayatPendidikanServiceContract->store($request))) {
+            # bump...
+            return $this->redirectSuccessCreate(route('riwayat_pendidikan.index'), $request->nama);
+        }
+    	return $this->redirectFailed(route('riwayat_pendidikan.create'), 'Gagal Menyimpan Data Pegawai');
+    }
+
+    public function update($id, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
+    {   
+        $dataDb = $riwayatPendidikanServiceContract->get($id);
+        
+        return view('backend.riwayat_pendidikan.update', compact( 'dataDb' ) );
+    }
+
+    public function show($id, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
+    {
+        $dataDb = $riwayatPendidikanServiceContract->get($id);
+
+        return view('backend.riwayat_pendidikan.show', compact( 'dataDb' ));
+    }
+
+    public function delete(Request $request, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
+    {   
+        $riwayatPendidikanServiceContract->delete($request->id);
+
+        return $this->redirectSuccessDelete(route('riwayat_pendidikan.index'), 'Data');
+    }
+
+    public function edit(riwayatpendidikanRequest $request, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
     {   
         // dd($request->all());
-        if (is_object($pegawaiServiceContract->store($request))) {
+        if (is_object($riwayatPendidikanServiceContract->edit($request))) {
             # bump...
-            return $this->redirectSuccessCreate(route('pegawai.index'), $request->nama);
+            return $this->redirectSuccessUpdate(route('riwayat_pendidikan.index'), $request->nama);
         }
-    	return $this->redirectFailed(route('pegawai.index'), 'Gagal Menyimpan Data Pegawai');
+        return $this->redirectFailed(route('riwayat_pendidikan.update', $request->id), 'Gagal Menyimpan Data Pegawai');
     }
 
     public function datatables(Request $request, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract)
@@ -48,5 +79,15 @@ class RiwayatController extends Controller
 
         return abort(404, 'uups');
 
+    }
+
+    public function select2(Request $request, RiwayatPendidikanServiceContract $riwayatPendidikanServiceContract){
+
+        if ($request->ajax() === true) {
+
+            return $riwayatPendidikanServiceContract->select2($request);
+        }
+
+        return abort('404', 'uups');
     }
 }

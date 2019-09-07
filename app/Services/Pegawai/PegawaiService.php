@@ -95,7 +95,9 @@ class PegawaiService implements PegawaiServiceContract
 
         return DataTables::eloquent($dataDb)
                 ->addColumn('action', function($dataDb) {
-                    return '<a href="'.route('pegawai.update', $dataDb->id).'"><i class="material-icons" title="ubah" id="tooltip">autorenew</i></a><a href="'.route('pegawai.delete', $dataDb->id).'" title="hapus" id="tooltip" data-toggle="modal" class="modal-trigger" data-target="#hapus"><i class="material-icons">clear</i></a><a href="'.route('pegawai.show', $dataDb->id).'" title="lihat" id="tooltip"><i class="material-icons">remove_red_eye</i></a>';
+                    return '<a href="'.route('pegawai.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>
+                            <a href="#" data-href="'.route('pegawai.delete', $dataDb->id).'" title="hapus" onClick="hapusData(\''.$dataDb->id.'\')"><i class="material-icons">clear</i></a>
+                            <a href="'.route('pegawai.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>';
                 })
                 ->rawColumns(['action'])
                 ->make(true);

@@ -27,4 +27,8 @@
                 .closest(".card-alert")
                 .fadeOut("slow");
         });
+
+        $(document).ready(function() {
+            $('.tooltipped').tooltip();
+        });
     </script>

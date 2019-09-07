@@ -21,11 +21,13 @@
                     <th>Nama Sekolah</th>
                     <th>Alamat Sekolah</th>
                     <th>Jurusan</th>
+                    <th>Nomor Ijazah</th>
                     <th>Tanggal Ijazah</th>
-                    {{-- <th>File Ijazah</th>
-                    <th>No Phone</th>
-                    <th>Status Kepegawaian</th> --}}
+                    <th>File Ijazah</th>
+                    <th>File Transkrip Nilai</th>
+                    <th>File Sertifikat Pendidikan</th>
                     <th>Created At</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -55,8 +57,8 @@
   <script>
     $(document).ready(function(){
       let table = $('#table-riwayat-pendidikan').DataTable({
-         scrollY: 200,
-         //scrollX: true,
+         scrollY: 500,
+         scrollX: true,
          processing: true,
          serverSide: true,
          ajax: {
@@ -70,68 +72,53 @@
               {data: 'nama_sekolah', name: 'nama_sekolah'},
               {data: 'alamat_sekolah', name: 'alamat_sekolah'},
               {data: 'jurusan', name: 'jurusan'},
+              {data: 'no_ijazah', name: 'no_ijazah'},
               {data: 'tanggal_ijazah', name: 'tanggal_ijazah'},
+              {data: 'file_ijazah', name: 'file_ijazah', render: function(data, type, oObj){
+                // console.log(oObj);
+                return '<img src="'+data+'" alt="file ijazah" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; height:100px; cursor:pointer;" onClick=viewImage(\''+data.replace(/\\/g,'/')+'\')>';
+              }},
+              {data: 'file_transkip_ijazah', name: 'file_transkip_ijazah', render: function(data, type, oObj){
+                // console.log(oObj);
+                return '<img src="'+data+'" alt="file transkip ijazah" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; height:100px; cursor:pointer;" onClick=viewImage(\''+data.replace(/\\/g,'/')+'\')>';
+              }},
+              {data: 'file_sertifikat_pendidik', name: 'file_sertifikat_pendidik', render: function(data, type, oObj){
+                // console.log(oObj);
+                return '<img src="'+data+'" alt="file sertifikat pendidik" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; height:100px; cursor:pointer;" onClick=viewImage(\''+data.replace(/\\/g,'/')+'\')>';
+              }},
               
               {data: 'created_at', name: 'created_at'},
-              // {
-              //     data: 'action', name: 'action', orderable: false, searchable: false,
-              //     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
-              //         $("a", nTd).tooltip({container: 'body'});
-              //     }
-              // }
+              {data: 'action', name: 'action'}
           ],
       })
-
-      // let table = $('#table-pegawai').DataTable({
-      //       aaSorting: [[0, 'desc']],
-      //       iDisplayLength: 25,
-      //       "scrollY": 200,
-      //       "scrollX": true
-      //       //stateSave: true,
-      //       responsive: true,
-      //       fixedHeader: true,
-      //       processing: true,
-      //       serverSide: true,
-      //       dom: "<'dt-panelmenu clearfix'<'row'<'col-sm-2'B><'col-sm-4'l><'col-sm-6'f>>>" +
-      //           "<'row'<'col-sm-12'tr>>" +
-      //           "<'dt-panelfooter clearfix'<'row'<'col-sm-5'i><'col-sm-7'p>>>",
-      //       pagingType: "full_numbers",
-      //       ajax: {
-      //           url: '{!! route('pegawai.ajax.data') !!}',
-      //           dataType: 'json'
-      //       },
-      //       columns: [
-      //           {data: 'id', name: 'id', visible: false},
-      //           {
-      //               data: 'checkbox', name: 'checkbox', orderable: false, searchable: false,
-      //               checkboxes: true
-      //           },
-      //           {data: 'title', name: 'title'},
-      //           {data: 'status', name: 'status'},
-
-      //           {data: 'created_at', name: 'created_at'},
-      //           {
-      //               data: 'action', name: 'action', orderable: false, searchable: false,
-      //               fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
-      //                   $("a", nTd).tooltip({container: 'body'});
-      //               }
-      //           }
-      //       ],
-      //       columnDefs: [
-      //           {
-      //               targets: 1,
-      //               className: 'text-center'
-      //           },
-      //       ],
-      //       buttons: [
-      //           {
-      //               extend: 'colvis',
-      //               text: '<i class="fa fa-columns"></i> @lang('auth.index_column')',
-      //               columns: '1, 2, 3, 4, 5'
-      //           }
-      //       ],
-      //       select: 'multi'
-      //   });
     });
+
+      $(function() {
+            $('.modal').modal();
+        //     $('#modal3').modal('open');
+        //     $('#modal3').modal('close');
+      });
+
+    function hapusData(id=null)
+    {
+      let form = $('#delete-form').closest('form');
+      
+      form.attr('action', '{{route('riwayat_pendidikan.delete')}}');
+      $('#method').val('DELETE');
+      $('#id').val(id);
+      $('#hapus').modal('open');
+
+    }
+
+    function viewImage(url)
+    //console.log(url);
+    {
+      $('#view_title').text('File Ijazah');
+      $('#imgView').attr({
+        src: url,
+        alt: 'Ijazah'
+      });
+      $('#view_image').modal('open');
+    }
   </script>
 @endpush
