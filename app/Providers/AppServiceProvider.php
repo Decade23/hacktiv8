@@ -11,6 +11,8 @@ use App\Services\RiwayatPendidikan\RiwayatPendidikanService;
 use App\Services\RiwayatPendidikan\RiwayatPendidikanServiceContract;
 use App\Services\Mutasi\MutasiService;
 use App\Services\Mutasi\MutasiServiceContract;
+use App\Services\Jabatan\JabatanService;
+use App\Services\Jabatan\JabatanServiceContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,5 +47,11 @@ class AppServiceProvider extends ServiceProvider
             MutasiServiceContract::class,
             MutasiService::class            
         );
+
+        $this->app->bind(
+            JabatanServiceContract::class,
+            JabatanService::class            
+        );
+
     }
 }
