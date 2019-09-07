@@ -93,18 +93,21 @@ class JabatanService implements JabatanServiceContract
     public function datatables($request)
     {
         $select = [
-            'jabatan.id', 'jabatan.user_id', 'jabatan', 'golongan', 'tmt_jabatan', 'sk_file_jabatan','jabatan.created_at'
+            'jabatan.id', 'jabatan.user_id', 'jabatan.jabatan', 'golongan', 'tmt_jabatan', 'jabatan.sk_file_jabatan','jabatan.created_at'
         ];
 
         $dataDb = Jabatan::select($select)->with('user_profile');
 
         return DataTables::eloquent($dataDb)
+        		->editColumn('sk_file_jabatan', function($dataDb) {
+        			return '<img src="'.url($dataDb->sk_file_jabatan).'" alt="sk file jabatan" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; height:100px; cursor:pointer;" onClick=viewImage(\''.url(str_replace('\\', '/',$dataDb->sk_file_jabatan)).'\')>';
+        		})
                 ->addColumn('action', function($dataDb) {
                     return '<a href="'.route('kepegawaian.jabatan.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>
                             <a href="#" data-href="'.route('kepegawaian.jabatan.delete', $dataDb->id).'" title="hapus" onClick="hapusData(\''.$dataDb->id.'\')"><i class="material-icons">clear</i></a>
                             <a href="'.route('kepegawaian.jabatan.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>';
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'sk_file_jabatan'])
                 ->make(true);
     }
 
