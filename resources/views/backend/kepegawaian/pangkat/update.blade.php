@@ -9,7 +9,7 @@
                 <div class="card-content">
                   <div class="card-title">Update Kepegawaian - Jabatan ( {{ $dataDb->user_profile->nama }} | {{ $dataDb->user_profile->nip }} )</div>
                   @include('response')
-                <form action="{{ route('kepegawaian.jabatan.edit', $dataDb->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('kepegawaian.pangkat.edit', $dataDb->id) }}" method="POST" enctype="multipart/form-data">
                   {!! csrf_field() !!}
                  {{method_field('PUT')}}              
                           <div class="input-field col s12">
@@ -22,22 +22,22 @@
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="pangkat" name="pangkat" type="text" class="validate" placeholder="">
-                            <label for="pangkat" value="{{ $dataDb->pangkat }}">Pangkat</label>
+                            <input id="pangkat" name="pangkat" value="{{ $dataDb->pangkat }}" type="text" class="validate" placeholder="">
+                            <label for="pangkat">Pangkat</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="golongan" name="golongan" type="text" class="validate" placeholder="">
+                            <input id="golongan" name="golongan" type="text" class="validate" placeholder="" value="{{ $dataDb->golongan }}">
                             <label for="golongan">Golongan</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="nomor_sk" name="nomor_sk" type="text" class="validate" placeholder="">
+                            <input id="nomor_sk" name="nomor_sk" type="text" class="validate" placeholder="" value="{{ $dataDb->nomor_sk }}">
                             <label for="nomor_sk">Nomor SK</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <input id="tanggal_sk" name="tanggal_sk" type="text" class="validate" placeholder="Tanggal SK">
+                            <input id="tanggal_sk" name="tanggal_sk" type="text" class="validate" placeholder="Tanggal SK" value="{{ $dataDb->tanggal_sk }}">
                             <label for="tanggal_sk">Tanggal SK</label>
                           </div>
 
@@ -52,7 +52,7 @@
                           </div>
 
                           {{-- hidden --}}
-                          <input type="hidden" name="sk_file_jabatan_hidden" value="{{ $dataDb->sk_file_jabatan }}">
+                          <input type="hidden" name="sk_file_pangkat_hidden" value="{{ $dataDb->sk_file_pangkat }}">
 
                           <div class="input-field col s12">
                             <a class="btn waves-effect waves-light" href="{{ url()->previous() }}">Back</a>
@@ -84,7 +84,7 @@
   <script>
     $(document).ready(function(){
       
-      $('#tanggal_mutasi').datepicker({
+      $('#tanggal_sk').datepicker({
         format : 'yyyy-mm-dd',
         changeMonth: true,
         changeYear : true,
@@ -92,11 +92,11 @@
         autoclose:true,
       });
 
-      $('#jabatan').select2({
-          theme: "bootstrap",
-          placeholder: "Select",
-          width: '100%',
-      });
+      // $('#jabatan').select2({
+      //     theme: "bootstrap",
+      //     placeholder: "Select",
+      //     width: '100%',
+      // });
 
       $('#userSearch').select2({
         theme: "bootstrap",
@@ -104,7 +104,7 @@
         width: '100%',
         tags: true,
         ajax: {
-            url: '{{route('kepegawaian.jabatan.ajax.select2')}}',
+            url: '{{route('kepegawaian.pangkat.ajax.select2')}}',
             dataType: 'json',
             delay: 250,
             data: function (params) {

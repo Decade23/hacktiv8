@@ -32,7 +32,41 @@
                   </div>
                </div> --}}
 
-               <div class="col s12 m4 l4">
+               @if ($dataDb->count())
+                 {{-- expr --}}
+                 @foreach ($dataDb as $jabatan)
+                   {{-- expr --}}
+                   <div class="col s12 m4 l4">
+                    <div class="card animate fadeLeft">
+                       <div class="card-content">
+                          <h4 class="card-title mb-0">Jumlah {{ ucwords($jabatan->jabatan) }} <i class="material-icons float-right">more_vert</i></h4>
+                          <p class="medium-small">Total Data</p>
+                          <div class="current-balance-container">
+                             <div id="current-balance-donut-chart" class="current-balance-shadow"></div>
+                          </div>
+                          <h5 class="center-align">{{ $jabatan->total }}</h5>
+                          <p class="medium-small center-align">Orang</p>
+                       </div>
+                    </div>
+                 </div>
+                 @endforeach
+               @else
+                <div class="col s12 m4 l4">
+                    <div class="card animate fadeLeft">
+                       <div class="card-content">
+                          <h4 class="card-title mb-0">No Data Entry. <i class="material-icons float-right">more_vert</i></h4>
+                          <p class="medium-small">Total Data</p>
+                          <div class="current-balance-container">
+                             <div id="current-balance-donut-chart" class="current-balance-shadow"></div>
+                          </div>
+                          <h5 class="center-align">0</h5>
+                          <p class="medium-small center-align">Orang</p>
+                       </div>
+                    </div>
+                 </div>
+               @endif
+
+               {{-- <div class="col s12 m4 l4">
                   <div class="card animate fadeLeft">
                      <div class="card-content">
                         <h4 class="card-title mb-0">Jumlah Guru <i class="material-icons float-right">more_vert</i></h4>
@@ -104,7 +138,7 @@
                         <p class="medium-small center-align">Orang</p>
                      </div>
                   </div>
-               </div>
+               </div> --}}
 
                <div class="col s12">
                   <!-- Current Balance -->

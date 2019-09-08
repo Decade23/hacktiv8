@@ -50,7 +50,10 @@
                         </table>
                         <div class="input-field col s12">
                           <a class="btn waves-effect waves-light" href="{{ route('pegawai.index') }}">Back</a>
-                          <a class="btn cyan waves-effect waves-light right" href="{{ route('pegawai.update',$dataDb->id) }}">Update</a>
+                          @if (Auth::user()->roles_id == 4 || Auth::user()->roles_id == 3 || Auth::user()->roles_id == 1)
+                            <a class="btn cyan waves-effect waves-light right" href="{{ route('pegawai.update',$dataDb->id) }}">Update</a>
+                          @endif
+                          
                         </div>
                      </div>
                         

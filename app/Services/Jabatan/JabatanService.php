@@ -10,6 +10,7 @@ use App\Traits\FileUploadTrait;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Pagination\Paginator;
 use File;
+use Illuminate\Support\Facades\Auth;
 
 class JabatanService implements JabatanServiceContract
 {
@@ -103,9 +104,39 @@ class JabatanService implements JabatanServiceContract
         			return '<img src="'.url($dataDb->sk_file_jabatan).'" alt="sk file jabatan" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; height:100px; cursor:pointer;" onClick=viewImage(\''.url(str_replace('\\', '/',$dataDb->sk_file_jabatan)).'\')>';
         		})
                 ->addColumn('action', function($dataDb) {
-                    return '<a href="'.route('kepegawaian.jabatan.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>
-                            <a href="#" data-href="'.route('kepegawaian.jabatan.delete', $dataDb->id).'" title="hapus" onClick="hapusData(\''.$dataDb->id.'\')"><i class="material-icons">clear</i></a>
-                            <a href="'.route('kepegawaian.jabatan.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>';
+                    $update = '';
+                    $delete = '';
+                    $lihat  = '';
+
+                    if (Auth::user()->roles_id == 4) { // bp
+                        # code...
+                        $delete = '<a href="#" data-href="'.route('kepegawaian.jabatan.delete', $dataDb->id).'" title="hapus" onClick="hapusData(\''.$dataDb->id.'\')"><i class="material-icons">clear</i></a>';
+                        $update = '<a href="'.route('kepegawaian.jabatan.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>';                
+                        $lihat = '<a href="'.route('kepegawaian.jabatan.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>'; 
+                    } 
+
+                    if (Auth::user()->roles_id == 3) { // kt
+                        # code...
+                        $update = '<a href="'.route('kepegawaian.jabatan.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>';                
+                        $lihat = '<a href="'.route('kepegawaian.jabatan.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>'; 
+                    } 
+
+                    if (Auth::user()->roles_id == 2) { // kepsek
+                        # code...               
+                        $lihat = '<a href="'.route('kepegawaian.jabatan.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>'; 
+                    } 
+
+                    if (Auth::user()->roles_id == 1) { // root
+                        # code...
+                        $delete = '<a href="#" data-href="'.route('kepegawaian.jabatan.delete', $dataDb->id).'" title="hapus" onClick="hapusData(\''.$dataDb->id.'\')"><i class="material-icons">clear</i></a>';
+                        $update = '<a href="'.route('kepegawaian.jabatan.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>';                
+                        $lihat = '<a href="'.route('kepegawaian.jabatan.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>'; 
+                    } 
+
+
+
+                    
+                    return $update.$lihat.$delete;
                 })
                 ->rawColumns(['action', 'sk_file_jabatan'])
                 ->make(true);

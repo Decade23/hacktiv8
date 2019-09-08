@@ -79,7 +79,7 @@
   <script>
     $(document).ready(function(){
       
-      $('#tanggal_mutasi').datepicker({
+      $('#tanggal_sk').datepicker({
         format : 'yyyy-mm-dd',
         changeMonth: true,
         changeYear : true,
@@ -87,11 +87,11 @@
         autoclose:true,
       });
 
-      $('#tanggal_sk').select2({
-          theme: "bootstrap",
-          placeholder: "Select",
-          width: '100%',
-      });
+      // $('#tanggal_sk').select2({
+      //     theme: "bootstrap",
+      //     placeholder: "Select",
+      //     width: '100%',
+      // });
 
       $('#userSearch').select2({
         theme: "bootstrap",

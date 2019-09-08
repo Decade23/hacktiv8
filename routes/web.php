@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard'); 
-})->name('dashboard')->middleware('auth');
+Route::get('/', 'DashboardController@index')->name('dashboard');

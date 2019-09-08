@@ -13,6 +13,8 @@ use App\Services\Mutasi\MutasiService;
 use App\Services\Mutasi\MutasiServiceContract;
 use App\Services\Jabatan\JabatanService;
 use App\Services\Jabatan\JabatanServiceContract;
+use App\Services\Pangkat\PangkatService;
+use App\Services\Pangkat\PangkatServiceContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,6 +53,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             JabatanServiceContract::class,
             JabatanService::class            
+        );
+
+        $this->app->bind(
+            PangkatServiceContract::class,
+            PangkatService::class            
         );
 
     }

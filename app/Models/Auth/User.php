@@ -2,7 +2,7 @@
 
 namespace App\Models\Auth;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;;
 
 class User extends Model
 {
@@ -15,4 +15,10 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    public function roles()
+    {
+    	return $this->belongsTo(Roles::class, 'roles_id','id');
+    }
+}
 }
