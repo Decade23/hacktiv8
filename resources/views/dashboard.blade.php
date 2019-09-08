@@ -5,6 +5,13 @@
     <div class="row">
         <div class="col s12">
             <div class="container">
+              <div class="col s12">
+                  <div class="card animate fadeLeft">
+                     <div class="card-content">
+                        <h4 class="card-title mb-0">Holaa Eneng Semangat yes sidangnya..., Sorry Mengacau :(</h4>
+                     </div>
+                  </div>
+               </div>
                 {{-- <div class="card">
                     <div class="card-content">
                         <p class="caption mb-0">
