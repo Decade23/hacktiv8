@@ -16,7 +16,7 @@ class CreateMutasiTable extends Migration
         Schema::create('mutasi', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->enum('jenis_mutasi',['pensiun','mutasi masuk','mutasi keluar','pindah antar instansi','wafat'])->default('mutasi masuk');
+            $table->string('jenis_mutasi');
             $table->date('tanggal_mutasi');
             $table->text('sk_mutasi');
             $table->timestamps();

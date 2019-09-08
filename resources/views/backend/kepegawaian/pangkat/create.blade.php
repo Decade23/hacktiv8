@@ -19,15 +19,55 @@
                             {{-- <label for="statusKepegawaian">Status Pegawai</label> --}}
                           </div>
 
-                          <div class="input-field col s12">
+                          {{-- <div class="input-field col s12">
                             <input id="pangkat" name="pangkat" type="text" class="validate" placeholder="">
                             <label for="pangkat">Pangkat</label>
-                          </div>
+                          </div> --}}
 
                           <div class="input-field col s12">
+                            <select name="pangkat" id="pangkat" class="browser-default" data-placeholder="pangkat">
+                              <option value=""selected></option>
+                              <option value="Pengatur Muda ">Pengatur Muda </option>
+                              <option value="Pengatur Muda Tingkat I">Pengatur Muda Tingkat I</option>
+                              <option value="Pengatur">Pengatur</option>
+                              <option value="Pengatur Tingkat I">Pengatur Tingkat I</option>
+                              <option value="Penata Muda ">Penata Muda </option>
+                              <option value="Penata Muda TK.1">Penata Muda TK.1</option>
+                              <option value="Penata">Penata</option>
+                              <option value="Penata TK.1">Penata TK.1</option>
+                              <option value="Pembina">Pembina</option>
+                              <option value="Pembina TK.1">Pembina TK.1</option>
+                              <option value="Pembina Utama Muda">Pembina Utama Muda</option>
+                              <option value="Pembina Utama Madya">Pembina Utama Madya</option>
+                              <option value="Pembina Utama">Pembina Utama</option>
+                            </select>
+                             <hr />
+                            {{-- <label for="mutasi">Mutasi</label> --}}
+                          </div>
+
+                         {{--  <div class="input-field col s12">
                             <input id="golongan" name="golongan" type="text" class="validate" placeholder="">
                             <label for="golongan">Golongan</label>
-                          </div>
+                          </div> --}}
+
+                           <div class="input-field col s12">
+                            <select name="golongan" id="golongan" class="browser-default" data-placeholder="golongan">
+                              <option value=""selected></option>
+                              <option value="II/a">II/a</option>
+                              <option value="II/b">II/b</option>
+                              <option value="II/c">II/c</option>
+                              <option value="II/d">II/d</option>
+                              <option value="III/a">III/a</option>
+                              <option value="III/b">III/b</option>
+                              <option value="III/c">III/c</option>
+                              <option value="III/d">III/d</option>
+                              <option value="IV/a">IV/a</option>
+                              <option value="IV/b">IV/b</option>
+                              <option value="IV/c">IV/c</option>
+                              <option value="IV/d">IV/d</option>
+                              <option value="IV/e">IV/e</option>
+                            </select>
+                             <hr />
 
                           <div class="input-field col s12">
                             <input id="nomor_sk" name="nomor_sk" type="text" class="validate" placeholder="">
@@ -87,11 +127,11 @@
         autoclose:true,
       });
 
-      // $('#tanggal_sk').select2({
-      //     theme: "bootstrap",
-      //     placeholder: "Select",
-      //     width: '100%',
-      // });
+      $('#pangkat, #golongan').select2({
+          theme: "bootstrap",
+          placeholder: "Select",
+          width: '100%',
+      });
 
       $('#userSearch').select2({
         theme: "bootstrap",

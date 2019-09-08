@@ -21,14 +21,25 @@
 
                           <div class="input-field col s12">
                             <select name="jabatan" id="jabatan" class="browser-default" data-placeholder="Jabatan">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="kepala sekolah">Kepala Sekolah</option>
-                              <option value="tu">TU</option>
-                              <option value="waket kurikulum">Waket Kurikulum</option>
-                              <option value="kesiswaan">Kesiswaan</option>
-                              <option value="humas">Humas</option>
-                              <option value="sarana prasarana">Sarana Prasarana</option>
+                              <option value=""selected></option>
+                              <option value="Kepala Madrasah">Kepala Madrasah</option>
+                              <option value="Kepala TU">Kepala TU</option>
+                              <option value="Waka Kurikulum">Waka Kurikulum</option>
+                              <option value="Waka Kesiswaan">Waka Kesiswaan</option>
+                              <option value="Waka Humas">Waka Humas</option>
+                              <option value="Waka sarana prasarana">Waka Sarana Prasarana</option>
+                              <option value="Penyusun Laporan Keuangan">Penyusun Laporan Keuangan</option>
+                              <option value="Pengadministrasi Umum">Pengadministrasi Umum</option>
+                              <option value="Pengadministrasi Kepegawaian">Pengadministrasi Kepegawaian</option>
+                              <option value="Bendahara">Bendahara</option>
+                              <option value="Kepala Perpustakaan">Kepala Perpustakaan</option>
+                              <option value="Pengadministrasi Kesiswaan">Pengadministrasi Kesiswaan</option>
+                              <option value="Pengadministrasi Laboran Dan Caraka">Pengadministrasi Laboran Dan Caraka</option>
+                              <option value="Pengadministrasi Perlengkapan">Pengadministrasi Perlengkapan</option>
+                              <option value="Petugas Kebersihan">Petugas Kebersihan</option>
+                              <option value="Keamanan">Keamanan</option>
                             </select>
+                             <hr />
                             {{-- <label for="mutasi">Mutasi</label> --}}
                           </div>
 
@@ -82,7 +93,7 @@
   <script>
     $(document).ready(function(){
       
-      $('#tanggal_mutasi').datepicker({
+      $('#tanggal_mutasi, #tmt_jabatan').datepicker({
         format : 'yyyy-mm-dd',
         changeMonth: true,
         changeYear : true,

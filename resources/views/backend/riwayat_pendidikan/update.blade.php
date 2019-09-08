@@ -21,9 +21,19 @@
                             {{-- <label for="statusKepegawaian">Status Pegawai</label> --}}
                           </div>
 
-                          <div class="input-field col s12">
+                          {{-- <div class="input-field col s12">
                             <input id="tingkatPendidikan" name="tingkatPendidikan" type="text" class="validate" value="{{ $dataDb->tingkat_pendidikan }}">
                             <label for="tingkatPendidikan">Tingkat Pendidikan</label>
+                          </div> --}}
+
+                          <div class="input-field col s12">
+                           <select name="tingkatPendidikan" id="tingkatPendidikan" class="browser-default" data-placeholder="Tingkat Pendidikan">
+                            <option value=""></option>
+                            <option value="SMA/MA" @if($dataDb->tingkat_pendidikan == 'SMA/MA') selected @endif>SMA/MA</option>
+                            <option value="S1"@if($dataDb->tingkat_pendidikan == 'S!') selected @endif>S1</option>
+                            <option value="S2"@if($dataDb->tingkat_pendidikan == 'S2') selected @endif>S2</option>
+                            </select>
+                             <hr />
                           </div>
 
                           <div class="input-field col s12">

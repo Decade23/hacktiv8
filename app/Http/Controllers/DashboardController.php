@@ -19,7 +19,9 @@ class DashboardController extends Controller
 
     public function index()
     {
-    	$dataDb = Jabatan::select('jabatan', DB::raw('count(*) as total'))->groupBy('jabatan')->get();
+    	$dataDb = Jabatan::select('jabatan', DB::raw('count(*) as total'))->doesntHave('mutasi_user')->with('mutasi_user')->orWhereHas('mutasi_user', function($query){
+            $query->where('jenis_mutasi','!=', 'mutasi keluar');
+        })->groupBy('jabatan')->get();
     	// dd($dataDb);
         return view('dashboard', compact( 'dataDb' ));
     }

@@ -23,15 +23,28 @@
 
                           <div class="input-field col s12">
                             <select name="jabatan" id="jabatan" class="browser-default" data-placeholder="Jabatan">
-                              <option value="" disabled selected>-- Pilih --</option>
-                              <option value="kepala sekolah" @if ($dataDb->jabatan == 'kepala sekolah') selected @endif>Kepala Sekolah</option>
-                              <option value="tu" @if ($dataDb->jabatan == 'tu') selected @endif>TU</option>
-                              <option value="waket kurikulum" @if ($dataDb->jabatan == 'waket kurikulum') selected @endif>Waket Kurikulum</option>
-                              <option value="kesiswaan" @if ($dataDb->jabatan == 'kesiswaan') selected @endif>Kesiswaan</option>
-                              <option value="humas" @if ($dataDb->jabatan == 'humas') selected @endif>Humas</option>
-                              <option value="sarana prasarana" @if ($dataDb->jabatan == 'sarana prasarana') selected @endif>Sarana Prasarana</option>
+                             
+                             <option value=""></option>
+                            <option value="Kepala Madrasah" @if ($dataDb->jabatan == 'Kepala Madrasah') selected @endif>Kepala Madrasah</option>
+                            <option value="Kepala TU" @if ($dataDb->jabatan == 'Kepala TU') selected @endif>Kepala TU</option>
+                            <option value="Waka Kurikulum" @if ($dataDb->jabatan == 'Waka Kurikulum') selected @endif>Waka Kurikulum</option>
+                            <option value="Waka Kesiswaan" @if ($dataDb->jabatan == 'Waka Kesiswaan') selected @endif>Waka Kesiswaan</option>
+                            <option value="Waka Humas" @if ($dataDb->jabatan == 'Waka Humas') selected @endif>Waka Humas</option>
+                            <option value="Waka Sarana Prasarana" @if ($dataDb->jabatan == 'Waka Sarana Prasarana') selected @endif>Waka Sarana Prasarana</option>
+                            <option value="Penyusun Laporan Keuangan" @if ($dataDb->jabatan == 'Penyusun Laporan Keuangan') selected @endif>Penyusun Laporan Keuangan</option>
+                            <option value="Pengadministrasi Umum" @if ($dataDb->jabatan == 'Pengadministrasi Umum') selected @endif>Pengadministrasi Umum</option>
+                            <option value="Pengadministrasi Kepegawaian"@if ($dataDb->jabatan == 'Pengadministrasi Kepegawaian') selected @endif>Pengadministrasi Kepegawaian</option>
+                            <option value="Bendahara" @if ($dataDb->jabatan == 'Bendahara') selected @endif>Bendahara</option>
+                            <option value="Kepala Perpustakaan" @if ($dataDb->jabatan == 'Kepala Perpustakaan') selected @endif>Kepala Perpustakaan</option>
+                            <option value="Pengadministrasi Kesiswaan" @if ($dataDb->jabatan == 'Pengadministrasi Kesiswaan') selected @endif>Pengadministrasi Kesiswaan</option>
+                            <option value="Pengadministrasi Laboran Dan Caraka" @if ($dataDb->jabatan == 'Pengadministrasi Laboran Dan Caraka') selected @endif>Pengadministrasi Laboran Dan Caraka</option>
+                            <option value="Pengadministrasi Perlengkapan" @if ($dataDb->jabatan == 'Pengadministrasi Perlengkapan') selected @endif>Pengadministrasi Perlengkapan</option>
+                            <option value="Petugas Kebersihan" @if ($dataDb->jabatan == 'Petugas Kebersihan') selected @endif>Petugas Kebersihan</option>
+                            <option value="Keamanan" @if ($dataDb->jabatan == 'Keamanan') selected @endif>Keamanan</option>
+
                             </select>
                             {{-- <label for="mutasi">Mutasi</label> --}}
+                            
                           </div>
 
                           <div class="input-field col s12">
@@ -87,7 +100,7 @@
   <script>
     $(document).ready(function(){
       
-      $('#tanggal_mutasi').datepicker({
+      $('#tanggal_mutasi, #tmt_jabatan').datepicker({
         format : 'yyyy-mm-dd',
         changeMonth: true,
         changeYear : true,

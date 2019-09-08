@@ -16,9 +16,9 @@ class CreateJabatanTable extends Migration
         Schema::create('jabatan', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->enum('jabatan',['kepala sekolah','tu','waket kurikulum','kesiswaan','humas','sarana prasarana']);
+            $table->string('jabatan');
             $table->string('golongan');
-            $table->string('tmt_jabatan');
+            $table->date('tmt_jabatan');
             $table->text('sk_file_jabatan');
             
             $table->timestamps();

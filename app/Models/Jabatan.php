@@ -16,4 +16,9 @@ class Jabatan extends Model
     {
     	return $this->belongsTo(UserProfile::class, 'user_id','id');
     }
+
+    public function mutasi_user()
+    {
+    	return $this->belongsTo(Mutasi::class, 'user_id','user_id');
+    }
 }

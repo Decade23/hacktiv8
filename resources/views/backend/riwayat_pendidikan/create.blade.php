@@ -19,9 +19,19 @@
                             {{-- <label for="statusKepegawaian">Status Pegawai</label> --}}
                           </div>
 
-                          <div class="input-field col s12">
+                          {{-- <div class="input-field col s12">
                             <input id="tingkatPendidikan" name="tingkatPendidikan" type="text" class="validate">
                             <label for="tingkatPendidikan">Tingkat Pendidikan</label>
+                          </div> --}}
+
+                          <div class="input-field col s12">
+                           <select name="tingkatPendidikan" id="tingkatPendidikan" class="browser-default" data-placeholder="Tingkat Pendidikan">
+                            <option value="" selected></option>
+                            <option value="SMA/MA">SMA/MA</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            </select>
+                             <hr />
                           </div>
 
                           <div class="input-field col s12">
@@ -145,6 +155,12 @@
               },
               cache: true,
           }
+      });
+        $('#tingkatPendidikan').select2({
+          theme: "bootstrap",
+          placeholder: "Select",
+          width: '100%',
+          // containerCssClass: ':all:',
       });
     });
   </script>

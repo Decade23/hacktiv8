@@ -2,7 +2,7 @@
 
 namespace App\Models\Auth;
 
-use Illuminate\Database\Eloquent\Model;;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
@@ -20,5 +20,4 @@ class User extends Model
     {
     	return $this->belongsTo(Roles::class, 'roles_id','id');
     }
-}
 }
