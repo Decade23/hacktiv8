@@ -10,7 +10,7 @@ class UserProfile extends Model
     protected $table = 'user_profile';
     
     protected $fillable = [
-        'id', 'nip', 'ktp', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'no_telepon', 'alamat', 'status_kawin', 'status_kepegawaian'
+        'id', 'nip', 'ktp', 'photo', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'no_telepon', 'alamat', 'status_kawin', 'status_kepegawaian'
     ];
 
     public function jabatans()

@@ -9,10 +9,12 @@ use App\Traits\UserTrait;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\FileUploadTrait;
+
 
 class PegawaiService implements PegawaiServiceContract
 {
-    use UserTrait;
+    use UserTrait, FileUploadTrait;
 
     public function get($id)
     {
@@ -25,9 +27,12 @@ class PegawaiService implements PegawaiServiceContract
 
         try {
             #save To DB...
+            $folderName = 'pegawai';
+
             $store = new UserProfile();
             $store->nip                 = $request->nip;
             $store->ktp                 = $request->ktp;
+            $store->photo               = $this->saveImage($request->file('photo'), $folderName);
             $store->nama                = $request->nama;
             $store->tempat_lahir        = $request->tempat_lahir;
             $store->tanggal_lahir       = $request->tanggal_lahir;

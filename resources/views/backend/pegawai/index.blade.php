@@ -20,6 +20,7 @@
                     <th>#</th>
                     <th>NIP</th>
                     <th>KTP</th>
+                    <th>Photo</th>
                     <th>Nama</th>
                     <th>Tempat Lahir</th>
                     <th>Tanggal Lahir</th>
@@ -71,6 +72,7 @@
               {data: 'id', name: 'id', visible: false},
               {data: 'nip', name: 'nip'},
               {data: 'ktp', name: 'ktp'},
+              {data: 'photo', name: 'photo'},
               {data: 'nama', name: 'nama'},
               {data: 'tempat_lahir', name: 'tempat_lahir'},
               {data: 'tanggal_lahir', name: 'tanggal_lahir'},

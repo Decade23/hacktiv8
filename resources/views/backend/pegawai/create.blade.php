@@ -24,6 +24,16 @@
                             <label for="ktp">Nomor KTP</label>
                           </div>
 
+                          <div class="col m6 s6 file-field input-field">
+                            <div class="btn float-right">
+                              <span>File Photo User</span>
+                              <input type="file" id="photo" name="photo">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
+
                           <div class="input-field col s12">
                             <input id="nama" name="nama" type="text" class="validate">
                             <label for="nama">Nama Pegawai</label>
