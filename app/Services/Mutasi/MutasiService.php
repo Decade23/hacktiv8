@@ -18,7 +18,7 @@ class MutasiService implements MutasiServiceContract
 
     public function get($id)
     {
-        return Mutasi::find($id)->with('user_profile')->first();
+        return Mutasi::where('id',$id)->with('user_profile')->first();
     }
 
     public function store($request)
@@ -55,7 +55,6 @@ class MutasiService implements MutasiServiceContract
     public function edit($request)
     {
         DB::beginTransaction();
-
         try {
             $folderName = 'mutasi';
             #save To DB...

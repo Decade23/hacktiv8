@@ -11,7 +11,7 @@
                   @include('response')
                   <div class="row">
             <div class="col s12">
-              @if (Auth::user()->roles_id == 4 || Auth::user()->roles_id == 3 || Auth::user()->roles_id == 1)
+              @if (Auth::user()->roles_id == 4 || Auth::user()->roles_id == 1)
                 <a class="waves-effect waves-light btn-small" href="{{ route('riwayat_pendidikan.create') }}">Create</a>
               @endif
               <table id="table-riwayat-pendidikan" class="display nowrap">

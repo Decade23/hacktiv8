@@ -18,7 +18,7 @@ class PegawaiService implements PegawaiServiceContract
 
     public function get($id)
     {
-        return UserProfile::find($id)->with('user_login')->first();
+        return UserProfile::where('id',$id)->with('user_login')->first();
     }
 
     public function store($request)
@@ -64,23 +64,34 @@ class PegawaiService implements PegawaiServiceContract
         DB::beginTransaction();
 
         try {
+            $folderName = 'pegawai';
             #save To DB...
             $edit = UserProfile::find($request->id);
+
+            $pushArray = array();
+
+                // dd($request->file('photo'));
+            if ($request->hasFile('photo')) {
+                # code...
+                $pushArray = array('photo' => $this->saveImage($request->file('photo'), $folderName) );
+
+                $this->deleteImage($request->photo_hidden);
+            }
+
             $dataUpdate = [
                 'nip'                 => $request->nip,
                 'ktp'                 => $request->ktp,
-                'photo'               => $request->photo,
                 'nama'                => $request->nama,
                 'tempat_lahir'        => $request->tempat_lahir,
                 'tanggal_lahir'       => $request->tanggal_lahir,
                 'jenis_kelamin'       => $request->jenis_kelamin,
-                'status_kawin'        => $request->status_kawin,
+                'status_kawin'        => $request->statusKawin,
                 'status_kepegawaian'  => $request->statusKepegawaian,
                 'alamat'              => $request->alamat,
                 'no_telepon'          => $request->noTelepon
             ];
 
-            $edit->update($dataUpdate);
+            $edit->update(array_merge($dataUpdate, $pushArray));
             
             DB::commit();
             return $edit;
@@ -129,10 +140,7 @@ class PegawaiService implements PegawaiServiceContract
                         $delete = '<a href="#" data-href="'.route('pegawai.delete', $dataDb->id).'" title="hapus" onClick="hapusData(\''.$dataDb->id.'\')"><i class="material-icons">clear</i></a>';
                         $update = '<a href="'.route('pegawai.update', $dataDb->id).'" data-tooltip="ubah" data-position="top" class="tooltipped"><i class="material-icons">autorenew</i></a>';                
                         $lihat = '<a href="'.route('pegawai.show', $dataDb->id).'" title="lihat" onCLick="viewData(\''.$dataDb->id.'\')"><i class="material-icons">remove_red_eye</i></a>'; 
-                    } 
-
-
-
+                    }
                     
                     return $update.$lihat.$delete;
                 })
@@ -142,6 +150,11 @@ class PegawaiService implements PegawaiServiceContract
 
     public function delete($id)
     {
+        $find = UserProfile::find($id);
+        
+        #this delete image
+        $this->deleteImage($find->photo);
+
         return UserProfile::find($id)->delete();
 
     }

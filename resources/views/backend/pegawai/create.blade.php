@@ -10,6 +10,7 @@
                   <div class="card animate fadeRight">
                      <div class="card-content">
                         <h4 class="card-title">Form Pegawai</h4>
+                        @include('response')
                      </div>
 
                      <form action="{{ route('pegawai.store') }}" method="POST" enctype="multipart/form-data">
@@ -24,7 +25,7 @@
                             <label for="ktp">Nomor KTP</label>
                           </div>
 
-                          <div class="col m6 s6 file-field input-field">
+                          <div class="col m12 s12 file-field input-field">
                             <div class="btn float-right">
                               <span>File Photo User</span>
                               <input type="file" id="photo" name="photo">

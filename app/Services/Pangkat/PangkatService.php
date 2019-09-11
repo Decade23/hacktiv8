@@ -19,7 +19,7 @@ class PangkatService implements PangkatServiceContract
 
     public function get($id)
     {
-        return Pangkat::find($id)->with('user_profile')->first();
+        return Pangkat::where('id',$id)->with('user_profile')->first();
     }
 
     public function store($request)

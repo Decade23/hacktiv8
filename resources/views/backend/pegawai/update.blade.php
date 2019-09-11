@@ -12,7 +12,7 @@
                         <h4 class="card-title">Update Form Pegawai ( {{ $dataDb->nama }} | {{ $dataDb->nip }} )</h4>
                      </div>
 
-                     <form action="{{ route('pegawai.edit', $dataDb->id) }}" method="POST">
+                     <form action="{{ route('pegawai.edit', $dataDb->id) }}" method="POST" enctype="multipart/form-data">
                      	{!! csrf_field() !!}
                      	{{method_field('PUT')}}
                           <div class="input-field col s12">
@@ -23,6 +23,16 @@
                           <div class="input-field col s12">
                             <input id="ktp" name="ktp" type="text" class="validate" value="{{ old('ktp', $dataDb->ktp) }}">
                             <label for="ktp">Nomor KTP</label>
+                          </div>
+
+                          <div class="col m12 s12 file-field input-field">
+                            <div class="btn float-right">
+                              <span>File Photo User</span>
+                              <input type="file" id="photo" name="photo">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
                           </div>
 
                           <div class="input-field col s12">
@@ -79,6 +89,9 @@
                             <input id="noTelepon" name="noTelepon" type="text" class="validate" value="{{ old('noTelepon', $dataDb->no_telepon) }}">
                             <label for="noTelepon">No Telepon</label>
                           </div>
+
+                          {{-- hidden --}}
+                          <input type="hidden" name="photo_hidden" value="{{ $dataDb->photo }}">
                                           
                           <div class="input-field col s12">
                             <a class="btn waves-effect waves-light" href="{{ url()->previous() }}">Back</a>

@@ -30,7 +30,7 @@
                            <select name="tingkatPendidikan" id="tingkatPendidikan" class="browser-default" data-placeholder="Tingkat Pendidikan">
                             <option value=""></option>
                             <option value="SMA/MA" @if($dataDb->tingkat_pendidikan == 'SMA/MA') selected @endif>SMA/MA</option>
-                            <option value="S1"@if($dataDb->tingkat_pendidikan == 'S!') selected @endif>S1</option>
+                            <option value="S1"@if($dataDb->tingkat_pendidikan == 'S1') selected @endif>S1</option>
                             <option value="S2"@if($dataDb->tingkat_pendidikan == 'S2') selected @endif>S2</option>
                             </select>
                              <hr />
@@ -132,6 +132,12 @@
         changeYear : true,
         yearRange  : "-100:+0",
         autoclose:true,
+      });
+
+      $('#tingkatPendidikan').select2({
+          theme: "bootstrap",
+          placeholder: "Select",
+          width: '100%',
       });
 
         $('#userSearch').select2({

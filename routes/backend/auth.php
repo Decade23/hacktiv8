@@ -4,7 +4,7 @@
 Route::group(['prefix' => 'auth'], function() {
     
     Route::get('login', 'AuthController@showFormLogin')
-    ->name('login');
+    ->name('login')->middleware('guest');
 
     Route::post('login/process', 'AuthController@processLogin')
     ->name('login.process');

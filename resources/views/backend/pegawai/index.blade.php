@@ -11,7 +11,7 @@
                   @include('response')
                   <div class="row">
             <div class="col s12">
-              @if (Auth::user()->roles_id == 4 || Auth::user()->roles_id == 3 || Auth::user()->roles_id == 1)
+              @if (Auth::user()->roles_id == 4 || Auth::user()->roles_id == 1)
                 <a class="waves-effect waves-light btn-small" href="{{ route('pegawai.create') }}">Create</a>
               @endif
               <table id="table-pegawai" class="display nowrap">
@@ -72,7 +72,10 @@
               {data: 'id', name: 'id', visible: false},
               {data: 'nip', name: 'nip'},
               {data: 'ktp', name: 'ktp'},
-              {data: 'photo', name: 'photo'},
+              {data: 'photo', name: 'photo', render: function(data, type, oObj){
+                // console.log(oObj);
+                return '<img src="'+data+'" alt="file ijazah" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; height:100px; cursor:pointer;" onClick=viewImage(\''+data.replace(/\\/g,'/')+'\')>';
+              }},
               {data: 'nama', name: 'nama'},
               {data: 'tempat_lahir', name: 'tempat_lahir'},
               {data: 'tanggal_lahir', name: 'tanggal_lahir'},
@@ -84,13 +87,6 @@
 
               {data: 'created_at', name: 'created_at'},
               {data: 'action', name: 'action'},
-              
-              // {
-              //     data: 'action', name: 'action', orderable: false, searchable: false,
-              //     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
-              //         $("a", nTd).tooltip({container: 'body'});
-              //     }
-              // }
           ],
       })
 
@@ -113,25 +109,16 @@
 
     }
 
-    // function viewData(id)
-    // {
-    //   console.log(id);
-    //   $.ajax({
-    //     url: '{{ route('pegawai.ajax.dataDb') }}',
-    //     type: 'POST',
-    //     dataType: 'JSON',
-    //     data: {id: id},
-    //     beforeSend: function(){
-    //       $('#load_view').show();
-    //     },
-    //     success: function(res){
-    //       console.log(res);
-    //     }
-
-    //   })
-      
-    //   $('#view_modal').modal('open');
-    // }
+    function viewImage(url)
+    //console.log(url);
+    {
+      $('#view_title').text('Photo Profile');
+      $('#imgView').attr({
+        src: url,
+        alt: 'File Photo'
+      });
+      $('#view_image').modal('open');
+    }
 
   </script>
 @endpush

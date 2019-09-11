@@ -17,7 +17,7 @@ trait FileUploadTrait
         #validate file image
         $this->validateFileAction($file);
 
-        $namaFile = time().'_'.$file->getClientOriginalName();
+        $namaFile = time().'_'.str_replace(' ', '_', $file->getClientOriginalName());
 
         $pathFile = $this->pathUpload.DIRECTORY_SEPARATOR.$folderUpload;
         

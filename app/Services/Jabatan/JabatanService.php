@@ -18,7 +18,7 @@ class JabatanService implements JabatanServiceContract
 
     public function get($id)
     {
-        return Jabatan::find($id)->with('user_profile')->first();
+        return Jabatan::where('id',$id)->with('user_profile')->first();
     }
 
     public function store($request)

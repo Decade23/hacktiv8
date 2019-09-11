@@ -18,7 +18,7 @@ class RiwayatPendidikanService implements RiwayatPendidikanServiceContract
 
     public function get($id)
     {
-        return RiwayatPendidikan::find($id)->with('user_profile')->first();
+        return RiwayatPendidikan::where('id',$id)->with('user_profile')->first();
     }
 
     public function store($request)
