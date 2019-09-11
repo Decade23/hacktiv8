@@ -12,7 +12,7 @@
                         <h4 class="card-title">Form Pegawai</h4>
                      </div>
 
-                     <form action="{{ route('pegawai.store') }}" method="POST">
+                     <form action="{{ route('pegawai.store') }}" method="POST" enctype="multipart/form-data">
                       {!! csrf_field() !!}
                           <div class="input-field col s12">
                             <input id="nip" name="nip" type="text" class="validate">

@@ -69,6 +69,7 @@ class PegawaiService implements PegawaiServiceContract
             $dataUpdate = [
                 'nip'                 => $request->nip,
                 'ktp'                 => $request->ktp,
+                'photo'               => $request->photo,
                 'nama'                => $request->nama,
                 'tempat_lahir'        => $request->tempat_lahir,
                 'tanggal_lahir'       => $request->tanggal_lahir,
@@ -94,7 +95,7 @@ class PegawaiService implements PegawaiServiceContract
     public function datatables($request)
     {
         $select = [
-            'user_profile.id', 'nip', 'ktp', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'status_kawin','status_kepegawaian', 'no_telepon', 'user_profile.created_at'
+            'user_profile.id', 'nip', 'ktp', 'photo', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'status_kawin','status_kepegawaian', 'no_telepon', 'user_profile.created_at'
         ];
 
         $dataDb = UserProfile::select($select);

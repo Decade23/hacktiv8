@@ -12,6 +12,10 @@
                         {{-- <h4 class="card-title">{{ $dataDb->nama }} | {{ $dataDb->nip }}</h4> --}}
                         <table>
                           <tr>
+                            <td>Foto Pegawai</td>
+                            <td><img src="{{ url($dataDb->photo) }}"  style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 177px; height:236px; cursor:pointer;"></td> 
+                          </tr>
+                          <tr>
                             <td>NIP/PEG.ID</td>
                             <td>{{ $dataDb->nip }}</td> 
                           </tr>
@@ -51,7 +55,7 @@
                         <div class="input-field col s12">
                           <a class="btn waves-effect waves-light" href="{{ route('pegawai.index') }}">Back</a>
                           @if (Auth::user()->roles_id == 4 || Auth::user()->roles_id == 3 || Auth::user()->roles_id == 1)
-                            <a class="btn cyan waves-effect waves-light right" href="{{ route('pegawai.update',$dataDb->id) }}">Update</a>
+                            {{-- <a class="btn cyan waves-effect waves-light right" href="{{ route('pegawai.update',$dataDb->id) }}">Update</a> --}}
                           @endif
                           
                         </div>
