@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Requests\Movie;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class MovieRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        if (request()->method == 'POST') {
+            # code...
+            return [
+                'phSearch'        => 'required|exists:ProductionHouse,id',
+                'movie'           => 'required',
+                'genre'          => 'required',
+            ];
+        } else {
+            # code...
+            return [
+                'phSearch'        => 'required|exists:ProductionHouse,id',
+                'movie'           => 'required',
+                'genre'          => 'required',
+            ];
+        }
+
+    }
+
+    // public function messages()
+    // {
+        
+    // }
+}

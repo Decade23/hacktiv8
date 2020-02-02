@@ -5,9 +5,9 @@
     <meta name="description" content="skripsi">
     <meta name="keywords" content="pegawai">
     <meta name="author" content="cocochip">
-    <title>KEPEGAWAIAN MAN 1</title>
-    <link rel="apple-touch-icon" href="{{ asset('image/logo.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{  asset('image/favicon.ico') }}">
+    <title>HACKTIV8 TEST</title>
+    <link rel="apple-touch-icon" href="{{ asset('image/logo_hacktiv.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{  asset('image/favicon_hacktiv8.ico') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

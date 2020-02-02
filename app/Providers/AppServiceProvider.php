@@ -9,10 +9,10 @@ use App\Services\Pegawai\PegawaiService;
 use App\Services\Pegawai\PegawaiServiceContract;
 use App\Services\RiwayatPendidikan\RiwayatPendidikanService;
 use App\Services\RiwayatPendidikan\RiwayatPendidikanServiceContract;
-use App\Services\Mutasi\MutasiService;
-use App\Services\Mutasi\MutasiServiceContract;
-use App\Services\Jabatan\JabatanService;
-use App\Services\Jabatan\JabatanServiceContract;
+use App\Services\ProductionHouse\ProductionHouseService;
+use App\Services\ProductionHouse\ProductionHouseServiceContract;
+use App\Services\Movie\MovieService;
+use App\Services\Movie\MovieServiceContract;
 use App\Services\Pangkat\PangkatService;
 use App\Services\Pangkat\PangkatServiceContract;
 
@@ -46,13 +46,13 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            MutasiServiceContract::class,
-            MutasiService::class            
+            ProductionHouseServiceContract::class,
+            ProductionHouseService::class
         );
 
         $this->app->bind(
-            JabatanServiceContract::class,
-            JabatanService::class            
+            MovieServiceContract::class,
+            MovieService::class
         );
 
         $this->app->bind(
